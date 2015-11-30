@@ -2,11 +2,16 @@
 
 class UserController extends Controller {
 
+    public $layout;
+    public $layoutPath;
+
     public function actionIndex() {
         $this->render('index');
     }
 
     public function actionLogin() {
+        $this->layoutPath = Yii::getPathOfAlias('webroot') . "/themes/classic/views/layouts";
+        $this->layout = 'main_no_header';
         $this->render('login');
     }
 
