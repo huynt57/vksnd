@@ -43,11 +43,11 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="index2.html" class="logo">
+                <a href="<?php echo Yii::app()->createUrl('documentary/index')?>" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>A</b>LT</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Admin</b>LTE</span>
+                    <span class="logo-lg"><b>Quản trị viên</b></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -61,19 +61,19 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">Alexander Pierce</span>
+                                    <span class="hidden-xs">Quản trị viên</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                         <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            Admin - Quản trị viên
+                                            <small>Thành viên từ 2015</small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
-                                    <li class="user-body">
+<!--                                    <li class="user-body">
                                         <div class="col-xs-4 text-center">
                                             <a href="#">Followers</a>
                                         </div>
@@ -83,7 +83,7 @@
                                         <div class="col-xs-4 text-center">
                                             <a href="#">Friends</a>
                                         </div>
-                                    </li>
+                                    </li>-->
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
@@ -96,9 +96,9 @@
                                 </ul>
                             </li>
                             <!-- Control Sidebar Toggle Button -->
-                            <li>
+<!--                            <li>
                                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </nav>
@@ -111,8 +111,8 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                        Quản trị
+                        <small>Quản lý hệ thống</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -125,21 +125,21 @@
             </div><!-- /.content-wrapper -->
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.3.0
+                    <b>Version</b> 0.0.0
                 </div>
                 <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">VKSND</a>.</strong> All rights reserved.
             </footer>
 
             <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Create the tabs -->
+<!--            <aside class="control-sidebar control-sidebar-dark">
+                 Create the tabs 
                 <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
                     <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
                     <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
                 </ul>
-                <!-- Tab panes -->
+                 Tab panes 
                 <div class="tab-content">
-                    <!-- Home tab content -->
+                     Home tab content 
                     <div class="tab-pane" id="control-sidebar-home-tab">
                         <h3 class="control-sidebar-heading">Recent Activity</h3>
                         <ul class="control-sidebar-menu">
@@ -179,7 +179,7 @@
                                     </div>
                                 </a>
                             </li>
-                        </ul><!-- /.control-sidebar-menu -->
+                        </ul> /.control-sidebar-menu 
 
                         <h3 class="control-sidebar-heading">Tasks Progress</h3>
                         <ul class="control-sidebar-menu">
@@ -227,12 +227,12 @@
                                     </div>
                                 </a>
                             </li>
-                        </ul><!-- /.control-sidebar-menu -->
+                        </ul> /.control-sidebar-menu 
 
-                    </div><!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
-                    <!-- Settings tab content -->
+                    </div> /.tab-pane 
+                     Stats tab content 
+                    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div> /.tab-pane 
+                     Settings tab content 
                     <div class="tab-pane" id="control-sidebar-settings-tab">
                         <form method="post">
                             <h3 class="control-sidebar-heading">General Settings</h3>
@@ -244,7 +244,7 @@
                                 <p>
                                     Some information about this general settings option
                                 </p>
-                            </div><!-- /.form-group -->
+                            </div> /.form-group 
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
@@ -254,7 +254,7 @@
                                 <p>
                                     Other sets of options are available
                                 </p>
-                            </div><!-- /.form-group -->
+                            </div> /.form-group 
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
@@ -264,7 +264,7 @@
                                 <p>
                                     Allow the user to show his name in blog posts
                                 </p>
-                            </div><!-- /.form-group -->
+                            </div> /.form-group 
 
                             <h3 class="control-sidebar-heading">Chat Settings</h3>
 
@@ -273,25 +273,25 @@
                                     Show me as online
                                     <input type="checkbox" class="pull-right" checked>
                                 </label>
-                            </div><!-- /.form-group -->
+                            </div> /.form-group 
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
                                     Turn off notifications
                                     <input type="checkbox" class="pull-right">
                                 </label>
-                            </div><!-- /.form-group -->
+                            </div> /.form-group 
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
                                     Delete chat history
                                     <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
                                 </label>
-                            </div><!-- /.form-group -->
+                            </div> /.form-group 
                         </form>
-                    </div><!-- /.tab-pane -->
+                    </div> /.tab-pane 
                 </div>
-            </aside><!-- /.control-sidebar -->
+            </aside> /.control-sidebar -->
             <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>

@@ -298,4 +298,24 @@ class StringHelper {
         }
     }
 
+    public static function getStatus($status) {
+        $result = null;
+        $lable = null;
+        switch ($status) {
+            case 1:
+                $result = "Đang thực hiện";
+                $lable = "warning";
+                break;
+            case 2:
+                $result = "Đã thực hiện";
+                $lable = "success";
+                break;
+            case 3:
+                $result = "Đã chuyển";
+                $lable = "primary";
+                break;
+        }
+        return array('status' => $result, 'lable' => $lable);
+    }
+
 }
