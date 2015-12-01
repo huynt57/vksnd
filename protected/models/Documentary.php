@@ -36,5 +36,16 @@ class Documentary extends BaseDocumentary {
             return 0;
         }
     }
+    
+    public function add($post)
+    {
+        $model = new Documentary;
+        $model->setAttributes($post);
+        if($model->save(FALSE))
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
 
 }

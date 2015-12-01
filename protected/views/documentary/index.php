@@ -4,7 +4,9 @@
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Danh sách công văn</h3>
+                    <a class="btn btn-primary" style="float: right" href="<?php echo Yii::app()->createUrl('documentary/add')?>">Thêm</a>
                 </div><!-- /.box-header -->
+                
                 <div class="box-body">
                     <table class="table table-bordered">
                         <tr>

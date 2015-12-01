@@ -20,6 +20,7 @@
  * @property string $number_doc_finish
  * @property string $number_doc_send
  * @property string $reciever
+ * @property integer $time_in_doc
  *
  */
 abstract class BaseDocumentary extends GxActiveRecord {
@@ -42,11 +43,11 @@ abstract class BaseDocumentary extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('status, date_recieve', 'numerical', 'integerOnly'=>true),
+			array('status, date_recieve, time_in_doc', 'numerical', 'integerOnly'=>true),
 			array('number, signed_user, number_doc_finish, number_doc_send, reciever', 'length', 'max'=>255),
 			array('shortcut, abstract, keywords', 'safe'),
-			array('number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever', 'safe', 'on'=>'search'),
+			array('number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever, time_in_doc', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever, time_in_doc', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,6 +74,7 @@ abstract class BaseDocumentary extends GxActiveRecord {
 			'number_doc_finish' => Yii::t('app', 'Number Doc Finish'),
 			'number_doc_send' => Yii::t('app', 'Number Doc Send'),
 			'reciever' => Yii::t('app', 'Reciever'),
+			'time_in_doc' => Yii::t('app', 'Time In Doc'),
 		);
 	}
 
@@ -90,6 +92,7 @@ abstract class BaseDocumentary extends GxActiveRecord {
 		$criteria->compare('number_doc_finish', $this->number_doc_finish, true);
 		$criteria->compare('number_doc_send', $this->number_doc_send, true);
 		$criteria->compare('reciever', $this->reciever, true);
+		$criteria->compare('time_in_doc', $this->time_in_doc);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
