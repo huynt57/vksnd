@@ -15,6 +15,27 @@ class UserController extends Controller {
         $this->render('login');
     }
 
+    public function actionProcessLogin() {
+        $request = Yii::app()->request;
+        if (isset($_POST)) {
+            $email = StringHelper::filterString($request->getPost('email'));
+            $password = StringHelper::filterString($request->getPost('password'));
+            if ($email === 'test@gmail.com' && $password === '123456') {
+                Yii::app()->session['logged'] = 1;
+                $this->redirect(Yii::app()->createUrl('documentary/index'));
+            } else {
+                Yii::app()->user->setFlash('error', 'Sai tên đăng nhập và mật khẩu');
+                $this->redirect(Yii::app()->createUrl('user/login'));
+            }
+        }
+    }
+    
+    public function actionLogout()
+    {
+        Yii::app()->session->destroy();
+        $this->redirect(Yii::app()->createUrl('user/login'));
+    }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

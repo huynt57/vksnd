@@ -1,17 +1,33 @@
 <body class="hold-transition login-page">
     <div class="login-box">
+        <div class="box-body">
+            <?php if (Yii::app()->user->hasFlash('error')): ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-ban"></i> Cảnh báo !</h4>
+                    <?php echo Yii::app()->user->getFlash('error'); ?>
+                </div>
+            <?php endif; ?>
+            <?php if (Yii::app()->user->hasFlash('success')): ?>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Thành công !</h4>
+                    <?php echo Yii::app()->user->getFlash('success'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
         <div class="login-logo">
             <b>Quản trị</b>VKSND
         </div><!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc của bạn</p>
-            <form action="../../index2.html" method="post">
+            <form action="<?php echo Yii::app()->createUrl('user/processLogin') ?>" method="post">
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control" placeholder="Email" name="email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Mật khẩu">
+                    <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">

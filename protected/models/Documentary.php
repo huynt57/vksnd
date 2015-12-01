@@ -27,6 +27,12 @@ class Documentary extends BaseDocumentary {
         $doc = Documentary::model()->findByPk($post['id']);
         if ($doc) {
             $doc->setAttributes($post);
+            if (isset($post['time_in_doc'])) {
+                $doc->time_in_doc = strtotime($post['time_in_doc']);
+            }
+            if (isset($post['date_recieve'])) {
+                $doc->date_recieve = strtotime($post['date_recieve']);
+            }
             if ($doc->save(FALSE)) {
                 return 1;
             } else {
@@ -36,13 +42,17 @@ class Documentary extends BaseDocumentary {
             return 0;
         }
     }
-    
-    public function add($post)
-    {
+
+    public function add($post) {
         $model = new Documentary;
         $model->setAttributes($post);
-        if($model->save(FALSE))
-        {
+        if (isset($post['time_in_doc'])) {
+            $model->time_in_doc = strtotime($post['time_in_doc']);
+        }
+        if (isset($post['date_recieve'])) {
+            $model->date_recieve = strtotime($post['date_recieve']);
+        }
+        if ($model->save(FALSE)) {
             return TRUE;
         }
         return FALSE;
