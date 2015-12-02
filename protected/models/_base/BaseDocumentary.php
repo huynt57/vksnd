@@ -21,6 +21,9 @@
  * @property string $number_doc_send
  * @property string $reciever
  * @property integer $time_in_doc
+ * @property string $country
+ * @property string $did_by
+ * @property string $obj_name
  *
  */
 abstract class BaseDocumentary extends GxActiveRecord {
@@ -45,9 +48,9 @@ abstract class BaseDocumentary extends GxActiveRecord {
 		return array(
 			array('status, date_recieve, time_in_doc', 'numerical', 'integerOnly'=>true),
 			array('number, signed_user, number_doc_finish, number_doc_send, reciever', 'length', 'max'=>255),
-			array('shortcut, abstract, keywords', 'safe'),
-			array('number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever, time_in_doc', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever, time_in_doc', 'safe', 'on'=>'search'),
+			array('shortcut, abstract, keywords, country, did_by, obj_name', 'safe'),
+			array('number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever, time_in_doc, country, did_by, obj_name', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, number, shortcut, abstract, signed_user, keywords, status, date_recieve, number_doc_finish, number_doc_send, reciever, time_in_doc, country, did_by, obj_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -75,6 +78,9 @@ abstract class BaseDocumentary extends GxActiveRecord {
 			'number_doc_send' => Yii::t('app', 'Number Doc Send'),
 			'reciever' => Yii::t('app', 'Reciever'),
 			'time_in_doc' => Yii::t('app', 'Time In Doc'),
+			'country' => Yii::t('app', 'Country'),
+			'did_by' => Yii::t('app', 'Did By'),
+			'obj_name' => Yii::t('app', 'Obj Name'),
 		);
 	}
 
@@ -93,6 +99,9 @@ abstract class BaseDocumentary extends GxActiveRecord {
 		$criteria->compare('number_doc_send', $this->number_doc_send, true);
 		$criteria->compare('reciever', $this->reciever, true);
 		$criteria->compare('time_in_doc', $this->time_in_doc);
+		$criteria->compare('country', $this->country, true);
+		$criteria->compare('did_by', $this->did_by, true);
+		$criteria->compare('obj_name', $this->obj_name, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

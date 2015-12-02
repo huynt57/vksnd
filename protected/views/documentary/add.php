@@ -36,17 +36,25 @@
                             </div>
                             <div class="form-group">
                                 <label for="abstract">Trích yếu</label>
-                                <textarea class="form-control" id="abstract" name="abstract"  ></textarea>
+                                <textarea rows="5" class="form-control" id="abstract" name="abstract"  ></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="shortcut">Tóm tắt</label>
-                                <textarea class="form-control" id="shortcut" name="shortcut"  ></textarea>
+                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut"  ></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="keywords">Từ khóa</label>
-                                <input type="text" class="form-control" id="keywords"  >
+                                <label for="country">Tên quốc gia</label>
+                                <input type="text" class="form-control" id="country" >
+                            </div>
+                            <div class="form-group">
+                                <label for="did_by">Người thực hiện</label>
+                                <input type="text" class="form-control" id="did_by" >
+                            </div>
+                            <div class="form-group">
+                                <label for="obj_name">Tên đối tượng</label>
+                                <input type="text" class="form-control" id="obj_name" >
                             </div>
                             <div class="form-group">
                                 <label for="reciever">Nơi gửi</label>
