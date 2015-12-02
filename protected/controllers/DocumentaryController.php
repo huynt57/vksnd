@@ -4,7 +4,7 @@ class DocumentaryController extends Controller {
 
     protected function beforeAction($action) {
         if ($action !== 'login') {
-            if (empty( Yii::app()->session['logged'])) {
+            if (empty(Yii::app()->session['logged'])) {
                 $this->redirect(Yii::app()->createUrl('user/login'));
             }
         }
@@ -42,7 +42,15 @@ class DocumentaryController extends Controller {
     }
 
     public function actionDelete() {
-        
+        $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
+        $result = Documentary::model()->findByPk($id);
+        if ($result->delete()) {
+            Yii::app()->user->setFlash('success', 'Xóa dữ liệu thành công !');
+            $this->redirect(Yii::app()->createUrl('documentary/index'));
+        } else {
+            Yii::app()->user->setFlash('error', 'Xóa dữ liệu thất bại !');
+            $this->redirect(Yii::app()->createUrl('documentary/index'));
+        }
     }
 
     public function actionEdit() {

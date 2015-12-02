@@ -25,8 +25,68 @@
         <ul class="sidebar-menu">
             <li class="header">Điều hướng chính</li>
             <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('documentary/index')?>">
-                    <i class="fa fa-dashboard"></i> <span>Quản lý công văn</span>
+                <a href="<?php echo Yii::app()->createUrl('documentary/index') ?>">
+                    <span>Yêu cầu tương trợ tư pháp <br>hình sự đi</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Yêu cầu tương trợ tư pháp <br>hình sự đến</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Tham gia ý kiến</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Văn bản có yếu tố nước ngoài</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Vụ án</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Đơn thư</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Thẩm định, hướng dẫn</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Truy nã nước ngoài</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Vụ việc có yếu tố nước ngoài khác</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Thư viện</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Tìm kiếm</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Thống kê</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href=" #">
+                    <span>Backup</span>
                 </a>
             </li>
         </ul>

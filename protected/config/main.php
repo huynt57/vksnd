@@ -10,7 +10,7 @@ return array(
     // preloading 'log' component
     'preload' => array('log'),
     // default contronller
-    // 'defaultController' => 'home',
+    'defaultController' => 'user/login',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
