@@ -50,7 +50,9 @@
                                 </td>
                                 <td>                                
                                     <a href="<?php echo Yii::app()->createUrl('documentary/edit', array('id' => $item->id)) ?>"><span class="label label-primary">Sửa</span></a>
-                                    <a href="<?php echo Yii::app()->createUrl('documentary/delete', array('id' => $item->id)) ?>"><span class="label label-danger">Xóa</span></a>
+                                    <a href="<?php echo Yii::app()->createUrl('documentary/delete', array('id' => $item->id)) ?>" onclick="if (!confirm('Bạn có chắc chắn xóa không ?, Hành động này không thể khôi phục')) {
+                                                    return false;
+                                                }"><span class="label label-danger">Xóa</span></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
