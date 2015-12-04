@@ -12,20 +12,20 @@ class WantedAbroadController extends Controller {
     }
 
     public function actionIndex() {
-        $data = Documentary::model()->getDocumentary();
+        $data = WantedAbroad::model()->getWantedAbroad();
         $this->render('index', $data);
     }
 
     public function actionAddProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Documentary::model()->add($post);
+            $result = WantedAbroad::model()->add($post);
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
-                $this->redirect(Yii::app()->createUrl('documentary/add'));
+                $this->redirect(Yii::app()->createUrl('wantedAbroad/add'));
             } else {
                 Yii::app()->user->setFlash('error', 'Thêm dữ liệu thất bại !');
-                $this->redirect(Yii::app()->createUrl('documentary/add'));
+                $this->redirect(Yii::app()->createUrl('wantedAbroad/add'));
             }
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
@@ -43,20 +43,20 @@ class WantedAbroadController extends Controller {
 
     public function actionDelete() {
         $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
-        $result = Documentary::model()->findByPk($id);
+        $result = WantedAbroad::model()->findByPk($id);
         if ($result->delete()) {
             Yii::app()->user->setFlash('success', 'Xóa dữ liệu thành công !');
-            $this->redirect(Yii::app()->createUrl('documentary/index'));
+            $this->redirect(Yii::app()->createUrl('wantedAbroad/index'));
         } else {
             Yii::app()->user->setFlash('error', 'Xóa dữ liệu thất bại !');
-            $this->redirect(Yii::app()->createUrl('documentary/index'));
+            $this->redirect(Yii::app()->createUrl('wantedAbroad/index'));
         }
     }
 
     public function actionEdit() {
         try {
             $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
-            $result = Documentary::model()->findByPk($id);
+            $result = WantedAbroad::model()->findByPk($id);
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
         }
@@ -66,16 +66,16 @@ class WantedAbroadController extends Controller {
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Documentary::model()->edit($post);
+            $result = WantedAbroad::model()->edit($post);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
-                $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));
+                $this->redirect(Yii::app()->createUrl('wantedAbroad/edit', array('id' => $post['id'])));
             } else if ($result == 2) {
                 Yii::app()->user->setFlash('error', 'Cập nhật dữ liệu thất bại !');
-                $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));
+                $this->redirect(Yii::app()->createUrl('wantedAbroad/edit', array('id' => $post['id'])));
             } else {
                 Yii::app()->user->setFlash('error', 'Không tồn tại tài liệu !');
-                $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));
+                $this->redirect(Yii::app()->createUrl('wantedAbroad/edit', array('id' => $post['id'])));
             }
         } catch (Exception $ex) {
             var_dump($ex->getMessage());

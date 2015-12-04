@@ -33,7 +33,7 @@
                             <th>Ngày khởi tố</th>
                             <th>Thời hạn tạm giam</th>
                             <th>Thời gian điều tra</th>
-                            <th>Điều tra viên thụ lý/th>
+                            <th>Điều tra viên thụ lý</th>
                             <th>Hành động</th>
                         </tr>
                         <?php foreach ($models as $item): ?>

@@ -45,12 +45,12 @@
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('case/index')?>">
                     <span>Vụ án</span>
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('letter/index')?>">
                     <span>Đơn thư</span>
                 </a>
             </li>
@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('wantedAbroad/index')?>">
                     <span>Truy nã nước ngoài</span>
                 </a>
             </li>

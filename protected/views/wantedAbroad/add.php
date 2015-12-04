@@ -22,74 +22,38 @@
                     <h3 class="box-title">Thêm mới tài liệu</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('documentary/addProcess') ?>">
+                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('wantedAbroad/addProcess') ?>">
 
                     <div class="box-body">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="number">Số công văn</label>
-                                <input type="text" class="form-control" id="number" name="number" >
+                                <label for="nation_request">Nước yêu cầu</label>
+                                <input type="text" class="form-control" id="nation_request" name="nation_request" >
                             </div>
                             <div class="form-group">
-                                <label for="time_in_doc">Thời gian ghi trên văn bản</label>
-                                <input type="text" class="form-control" id="time_in_doc" name="time_in_doc"  >
+                                <label for="wanted_number">Số truy nã quốc tế</label>
+                                <input type="wanted_number" class="form-control" id="time_in_doc" name="wanted_number"  >
                             </div>
                             <div class="form-group">
-                                <label for="abstract">Trích yếu</label>
-                                <textarea rows="5" class="form-control" id="abstract" name="abstract"  ></textarea>
+                                <label for="crime">Tội danh</label>
+                                <input type="crime" class="form-control" id="crime" name="crime"  >
                             </div>
-                            <div class="form-group">
-                                <label for="shortcut">Tóm tắt</label>
-                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut"  ></textarea>
-                            </div>
+                            
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="country">Tên quốc gia</label>
-                                <input type="text" class="form-control" id="country" >
+                                <label for="date_publish">Ngày phát hành</label>
+                                <input type="date_publish" class="form-control" id="date_publish" name="date_publish" >
                             </div>
                             <div class="form-group">
-                                <label for="did_by">Người thực hiện</label>
-                                <input type="text" class="form-control" id="did_by" >
+                                <label for="staff_assigned">Cán bộ xử lý</label>
+                                <input type="staff_assigned" class="form-control" id="staff_assigned" name="staff_assigned" >
                             </div>
                             <div class="form-group">
-                                <label for="obj_name">Tên đối tượng</label>
-                                <input type="text" class="form-control" id="obj_name" >
+                                <label for="object_name">Tên đối tượng</label>
+                                <input type="text" class="form-control" id="object_name" name="object_name" >
                             </div>
-                            <div class="form-group">
-                                <label for="reciever">Nơi gửi</label>
-                                <input type="text" name="reciever" class="form-control" id="reciever"  >
-                            </div>
-                            <div class="form-group">
-                                <label for="signed_user">Người ký</label>
-                                <input type="text" class="form-control" id="signed_user"  >
-                            </div>
-                            <div class="form-group">
-                                <label for="status">Tình trạng</label>
-                                <select class="form-control" onchange="showOff();" id="change_status">
-                                    <option>Chọn trạng thái</option>
-                                    <option value="1">Đang thực hiện</option>
-                                    <option value="2">Đã thực hiện</option>
-                                    <option value="3">Đã chuyển</option>
-                                </select>
 
-                            </div>
-                            <div class="form-group" id="receive_day">
-                                <label for="date_recieve">Ngày tiếp nhận xử lý</label>
-                                <input type="text" class="form-control" id="date_recieve" name="date_recieve"  >
-                            </div>
-                            <div class="form-group" id="doc_end">
-                                <label for="number_doc_finish">Công văn kết thúc số</label>
-                                <input type="text" class="form-control" id="number_doc_finish" name="number_doc_finish"  >
-                            </div>
-                            <div class="form-group" id="doc_send">
-                                <label for="number_doc_send">Số công văn chuyển</label>
-                                <input type="text" class="form-control" id="number_doc_send" name="number_doc_send"  >
-                            </div>
-                            <div class="form-group" id="receive_place">
-                                <label for="reciever">Nơi tiếp nhận</label>
-                                <input type="text" class="form-control" id="reciever" name="reciever">
-                            </div>
                         </div>
                     </div><!-- /.box-body -->
 
@@ -102,41 +66,5 @@
     </div>
 </section>
 <script>
-    function showOff() {
-        if (document.getElementById('change_status').value === '1') {
 
-            $('#receive_day').show();
-//            $('#receive_day').datepicker({
-//                dateFormat: 'yy-mm-dd'
-//            });
-            $('#doc_end').hide();
-            $('#doc_send').hide();
-            $('#receive_place').hide();
-        } else if (document.getElementById('change_status').value === '2') {
-            $('#receive_day').hide();
-            $('#doc_end').show();
-            $('#doc_send').hide();
-            $('#receive_place').hide();
-        } else if (document.getElementById('change_status').value === '3') {
-            $('#receive_day').hide();
-            $('#doc_end').hide();
-            $('#doc_send').show();
-            $('#receive_place').show();
-        } else {
-            $('#receive_day').hide();
-            $('#doc_end').hide();
-            $('#doc_send').hide();
-            $('#receive_place').hide();
-        }
-    }
-    $(function () {
-        $('#time_in_doc').datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
-        $('#receive_day').hide();
-        $('#doc_end').hide();
-        $('#doc_send').hide();
-        $('#receive_place').hide();
-        //Date range picker with time picker
-    });
 </script>

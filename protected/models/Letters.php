@@ -8,15 +8,15 @@ class Letters extends BaseLetters {
         return parent::model($className);
     }
 
-    public function getCase() {
+    public function getLetter() {
         $criteria = new CDbCriteria();
-        $count = Cases::model()->count($criteria);
+        $count = Letters::model()->count($criteria);
         $pages = new CPagination($count);
 
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
-        $models = Cases::model()->findAll($criteria);
+        $models = Letters::model()->findAll($criteria);
         return array(
             'models' => $models,
             'pages' => $pages
@@ -24,11 +24,14 @@ class Letters extends BaseLetters {
     }
 
     public function edit($post) {
-        $doc = Cases::model()->findByPk($post['id']);
+        $doc = Letters::model()->findByPk($post['id']);
         if ($doc) {
             $doc->setAttributes($post);
-            if (isset($post['date_prosecution'])) {
-                $doc->date_prosecution = strtotime($post['date_prosecution']);
+            if (isset($post['signed_recieve'])) {
+                $model->signed_recieve = strtotime($post['signed_recieve']);
+            }
+            if (isset($post['signed_date'])) {
+                $model->signed_date = strtotime($post['signed_date']);
             }
             if ($doc->save(FALSE)) {
                 return 1;
@@ -41,10 +44,13 @@ class Letters extends BaseLetters {
     }
 
     public function add($post) {
-        $model = new Letters;
+        $model = new Letters();
         $model->setAttributes($post);
-        if (isset($post['date_prosecution'])) {
-            $model->date_prosecution = strtotime($post['date_prosecution']);
+        if (isset($post['signed_recieve'])) {
+            $model->signed_recieve = strtotime($post['signed_recieve']);
+        }
+        if (isset($post['signed_date'])) {
+            $model->signed_date = strtotime($post['signed_date']);
         }
         if ($model->save(FALSE)) {
             return TRUE;

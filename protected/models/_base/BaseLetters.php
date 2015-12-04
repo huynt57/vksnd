@@ -39,8 +39,7 @@ abstract class BaseLetters extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('id', 'required'),
-			array('id, signed_date, signed_recieve', 'numerical', 'integerOnly'=>true),
+			array('signed_date, signed_recieve', 'numerical', 'integerOnly'=>true),
 			array('letter_created, decided_assigned, verification_period, content, staff_assigned', 'safe'),
 			array('letter_created, signed_date, signed_recieve, decided_assigned, verification_period, content, staff_assigned', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, letter_created, signed_date, signed_recieve, decided_assigned, verification_period, content, staff_assigned', 'safe', 'on'=>'search'),

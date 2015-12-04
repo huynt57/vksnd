@@ -41,7 +41,7 @@ class WantedAbroad extends BaseWantedAbroad {
     }
 
     public function add($post) {
-        $model = new Letters;
+        $model = new WantedAbroad;
         $model->setAttributes($post);
         if (isset($post['date_publish'])) {
             $model->date_publish = strtotime($post['date_publish']);

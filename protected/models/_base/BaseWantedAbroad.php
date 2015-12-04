@@ -38,8 +38,7 @@ abstract class BaseWantedAbroad extends GxActiveRecord {
 
 	public function rules() {
 		return array(
-			array('id', 'required'),
-			array('id, date_publish', 'numerical', 'integerOnly'=>true),
+			array('date_publish', 'numerical', 'integerOnly'=>true),
 			array('nation_request, object_name, wanted_number, crime, staff_assigned', 'safe'),
 			array('nation_request, object_name, wanted_number, crime, date_publish, staff_assigned', 'default', 'setOnEmpty' => true, 'value' => null),
 			array('id, nation_request, object_name, wanted_number, crime, date_publish, staff_assigned', 'safe', 'on'=>'search'),
