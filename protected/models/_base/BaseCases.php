@@ -15,6 +15,7 @@
  * @property string $detention_period
  * @property string $investigator
  * @property string $investigation_period
+ * @property string $case_name
  *
  */
 abstract class BaseCases extends GxActiveRecord {
@@ -38,9 +39,9 @@ abstract class BaseCases extends GxActiveRecord {
 	public function rules() {
 		return array(
 			array('date_prosecution', 'numerical', 'integerOnly'=>true),
-			array('accused, detention_period, investigator, investigation_period', 'safe'),
-			array('date_prosecution, accused, detention_period, investigator, investigation_period', 'default', 'setOnEmpty' => true, 'value' => null),
-			array('id, date_prosecution, accused, detention_period, investigator, investigation_period', 'safe', 'on'=>'search'),
+			array('accused, detention_period, investigator, investigation_period, case_name', 'safe'),
+			array('date_prosecution, accused, detention_period, investigator, investigation_period, case_name', 'default', 'setOnEmpty' => true, 'value' => null),
+			array('id, date_prosecution, accused, detention_period, investigator, investigation_period, case_name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,6 +63,7 @@ abstract class BaseCases extends GxActiveRecord {
 			'detention_period' => Yii::t('app', 'Detention Period'),
 			'investigator' => Yii::t('app', 'Investigator'),
 			'investigation_period' => Yii::t('app', 'Investigation Period'),
+			'case_name' => Yii::t('app', 'Case Name'),
 		);
 	}
 
@@ -74,6 +76,7 @@ abstract class BaseCases extends GxActiveRecord {
 		$criteria->compare('detention_period', $this->detention_period, true);
 		$criteria->compare('investigator', $this->investigator, true);
 		$criteria->compare('investigation_period', $this->investigation_period, true);
+		$criteria->compare('case_name', $this->case_name, true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,
