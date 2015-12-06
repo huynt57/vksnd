@@ -46,16 +46,16 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="country">Ngày ký</label>
-                                <input type="text" class="form-control" id="country"  >
+                                <label for="signed_date">Ngày ký</label>
+                                <input type="text" class="form-control" id="signed_date" name="signed_date" >
                             </div>
                             <div class="form-group">
-                                <label for="did_by">Cán bộ giải quyết</label>
-                                <input type="text" class="form-control" id="did_by"  >
+                                <label for="staff_assigned">Cán bộ giải quyết</label>
+                                <input type="text" class="form-control" id="staff_assigned" name="staff_assigned" >
                             </div>
                             <div class="form-group">
-                                <label for="obj_name">Thời hạn xác minh</label>
-                                <input type="text" class="form-control" id="obj_name"  >
+                                <label for="verification_period">Thời hạn xác minh</label>
+                                <input type="text" class="form-control" id="verification_period" name="verification_period" >
                             </div>
 
                         </div>
@@ -69,4 +69,16 @@
         </div>
     </div>
 </section>
+<script>
+
+    $(function () {
+        $('#signed_recieve').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#signed_date').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+    });
+</script>
 

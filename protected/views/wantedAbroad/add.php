@@ -66,5 +66,11 @@
     </div>
 </section>
 <script>
-
+    
+    $(function () {
+        $('#date_publish').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+       
+    });
 </script>

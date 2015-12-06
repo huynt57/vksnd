@@ -19,7 +19,9 @@ class CaseController extends Controller {
     public function actionAddProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
+           
             $result = Cases::model()->add($post);
+            
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('case/add'));

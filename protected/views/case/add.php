@@ -46,24 +46,32 @@
                                 <label for="detention_period">Thời hạn tạm giam</label>
                                 <input type="text" class="form-control" id="detention_period" name="detention_period"  >
                             </div>
-                            <input type="hidden" name="id" value="<?php echo $model->id; ?>">
+
                             <div class="form-group">
                                 <label for="investigation_period">Thời hạn điều tra</label>
-                                <input type="text" class="form-control" id="investigation_period"  >
+                                <input type="text" class="form-control" id="investigation_period" name="investigation_period" >
                             </div>
                             <div class="form-group">
                                 <label for="investigator">Điều tra viên thụ lý</label>
-                                <input type="text" class="form-control" id="investigator"  >
+                                <input type="text" class="form-control" id="investigator" name="investigator" >
                             </div>
 
                         </div>
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
                     </div>
                 </form>
             </div><!-- /.box -->
         </div>
     </div>
 </section>
+<script>
+    $(function () {
+        $('#date_prosecution').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+    });
+</script>

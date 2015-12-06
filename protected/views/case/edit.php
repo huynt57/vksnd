@@ -49,11 +49,11 @@
                             <input type="hidden" name="id" value="<?php echo $model->id; ?>">
                             <div class="form-group">
                                 <label for="investigation_period">Thời hạn điều tra</label>
-                                <input type="text" class="form-control" id="investigation_period" value="<?php echo $model->investigation_period ?>" >
+                                <input  name="investigation_period" type="text" class="form-control" id="investigation_period" value="<?php echo $model->investigation_period ?>" >
                             </div>
                             <div class="form-group">
                                 <label for="investigator">Điều tra viên thụ lý</label>
-                                <input type="text" class="form-control" id="investigator" value="<?php echo $model->investigator ?>" >
+                                <input type="text" name="investigator" class="form-control" id="investigator" value="<?php echo $model->investigator ?>" >
                             </div>
 
                         </div>
@@ -67,3 +67,12 @@
         </div>
     </div>
 </section>
+<script>
+    
+    $(function () {
+        $('#date_prosecution').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+       
+    });
+</script>

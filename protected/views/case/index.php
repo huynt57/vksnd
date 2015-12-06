@@ -43,7 +43,7 @@
                                 <td>
                                     <?php echo $item->accused; ?>
                                 </td>
-                                <td> <?php echo $item->date_prosecution; ?></td>
+                                <td> <?php echo Date('m/d/Y', $item->date_prosecution); ?></td>
                                 <td> <?php echo $item->detention_period; ?></td>
                                 <td> <?php echo $item->investigation_period; ?></td>
                                 <td> <?php echo $item->investigator; ?></td>

@@ -28,26 +28,22 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>Mã số</th>
-                            <th>Số công văn</th>
-                            <th>Tóm tắt</th>
-                            <th>Người ký</th>
-                            <th>Từ khóa</th>
-                            <th>Tình trạng</th>
+                            <th>Nước yêu cầu</th>
+                            <th>Số truy nã quốc tế</th>
+                            <th>Ngày phát hành</th>
+                            <th>Cán bộ xử lý</th>
                             <th>Hành động</th>
                         </tr>
                         <?php foreach ($models as $item): ?>
                             <tr>
                                 <td><?php echo $item->id; ?></td>
-                                <td><?php echo $item->number; ?></td>
+                                <td><?php echo $item->nation_request; ?></td>
                                 <td>
-                                    <?php echo $item->shortcut; ?>
+                                    <?php echo $item->wanted_number; ?>
                                 </td>
-                                <td> <?php echo $item->signed_user; ?></td>
-                                <td> <?php echo $item->keywords; ?></td>
-                                <td>
-                                    <?php $status = StringHelper::getStatus($item->status); ?>
-                                    <span class="label label-<?php echo $status['lable'] ?>"><?php echo $status['status'] ?></span>
-                                </td>
+                                <td> <?php echo Date('m/d/Y', $item->date_publish); ?></td>
+                                <td> <?php echo $item->staff_assigned; ?></td>
+                               
                                 <td>                                
                                     <a href="<?php echo Yii::app()->createUrl('wantedAbroad/edit', array('id' => $item->id)) ?>"><span class="label label-primary">Sửa</span></a>
                                     <a href="<?php echo Yii::app()->createUrl('wantedAbroad/delete', array('id' => $item->id)) ?>" onclick="if (!confirm('Bạn có chắc chắn xóa không ?, Hành động này không thể khôi phục')) {

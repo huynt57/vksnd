@@ -47,11 +47,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="signed_date">Ngày ký</label>
-                                <input type="text" class="form-control" id="signed_date" value="<?php echo $model->signed_date ?>" >
+                                <input name="signed_date" type="text" class="form-control" id="signed_date" value="<?php echo Date('m/d/Y', $model->signed_date) ?>" >
                             </div>
                             <div class="form-group">
                                 <label for="staff_assigned">Cán bộ giải quyết</label>
-                                <input type="text" class="form-control" id="staff_assigned" value="<?php echo $model->staff_assigned ?>" >
+                                <input  name="staff_assigned" type="text" class="form-control" id="staff_assigned" value="<?php echo $model->staff_assigned ?>" >
                             </div>
                             <div class="form-group">
                                 <label for="verification_period">Thời hạn xác minh</label>
@@ -69,3 +69,15 @@
         </div>
     </div>
 </section>
+<script>
+
+    $(function () {
+        $('#signed_recieve').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#signed_date').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+    });
+</script>
