@@ -20,7 +20,7 @@ class CaseController extends Controller {
         try {
             $post = StringHelper::filterArrayString($_POST);
            
-            $result = Cases::model()->add($post);
+            $result = Cases::model()->add($_POST);
             
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
@@ -68,7 +68,7 @@ class CaseController extends Controller {
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Cases::model()->edit($post);
+            $result = Cases::model()->edit($_POST);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('case/edit', array('id' => $post['id'])));

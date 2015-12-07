@@ -10,6 +10,7 @@ class WantedAbroad extends BaseWantedAbroad {
 
     public function getWantedAbroad() {
         $criteria = new CDbCriteria();
+        $criteria->order = 'id DESC';
         $count = WantedAbroad::model()->count($criteria);
         $pages = new CPagination($count);
 

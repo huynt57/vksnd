@@ -10,6 +10,7 @@ class Cases extends BaseCases {
 
     public function getCase() {
         $criteria = new CDbCriteria();
+        $criteria->order = 'id DESC';
         $count = Cases::model()->count($criteria);
         $pages = new CPagination($count);
 

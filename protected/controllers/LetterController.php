@@ -19,7 +19,7 @@ class LetterController extends Controller {
     public function actionAddProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Letters::model()->add($post);
+            $result = Letters::model()->add($_POST);
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('letter/add'));
@@ -66,7 +66,7 @@ class LetterController extends Controller {
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Letters::model()->edit($post);
+            $result = Letters::model()->edit($_POST);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('letter/edit', array('id' => $post['id'])));

@@ -10,6 +10,7 @@ class Documentary extends BaseDocumentary {
 
     public function getDocumentary() {
         $criteria = new CDbCriteria();
+         $criteria->order = 'id DESC';
         $count = Documentary::model()->count($criteria);
         $pages = new CPagination($count);
 

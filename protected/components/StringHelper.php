@@ -36,12 +36,6 @@ class StringHelper {
 
     public static function filterString($string) {
         $string = strip_tags($string);
-        $string = stripcslashes($string);
-        // $p = new CHtmlPurifier();
-        $string = htmlspecialchars($string);
-        // $string = $p->purify($string);
-        $string = addslashes($string);
-        $string = str_replace("\r\n", "\n", $string);
         $string = trim($string);
         return $string;
     }

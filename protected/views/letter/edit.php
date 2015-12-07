@@ -40,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="content">Nội dung đơn</label>
-                                <textarea type="text" name="content" class="form-control" id="content" value="<?php echo $model->content ?>" ></textarea>
+                                <textarea type="text" name="content" class="form-control" id="content" value="<?php echo $model->content ?>" ><?php echo $model->content ?></textarea>
                             </div>
                             <input type="hidden" name="id" value="<?php echo $model->id; ?>">
                         </div>

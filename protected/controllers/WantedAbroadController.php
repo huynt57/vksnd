@@ -19,7 +19,7 @@ class WantedAbroadController extends Controller {
     public function actionAddProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = WantedAbroad::model()->add($post);
+            $result = WantedAbroad::model()->add($_POST);
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('wantedAbroad/add'));
@@ -66,7 +66,7 @@ class WantedAbroadController extends Controller {
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = WantedAbroad::model()->edit($post);
+            $result = WantedAbroad::model()->edit($_POST);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('wantedAbroad/edit', array('id' => $post['id'])));

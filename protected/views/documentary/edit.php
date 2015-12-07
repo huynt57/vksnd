@@ -36,11 +36,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="abstract">Trích yếu</label>
-                                <textarea rows="5" class="form-control" id="abstract" name="abstract" value="<?php echo $model->abstract ?>" ></textarea>
+                                <textarea rows="5" class="form-control" id="abstract" name="abstract" value="<?php echo $model->abstract ?>" ><?php echo $model->abstract ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="shortcut">Tóm tắt</label>
-                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut" value="<?php echo $model->shortcut ?>" ></textarea>
+                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut" value="<?php echo $model->shortcut ?>" ><?php echo $model->shortcut ?></textarea>
                             </div>
                             <input type="hidden" name="id" value="<?php echo $model->id; ?>">
                         </div>

@@ -10,6 +10,7 @@ class Letters extends BaseLetters {
 
     public function getLetter() {
         $criteria = new CDbCriteria();
+         $criteria->order = 'id DESC';
         $count = Letters::model()->count($criteria);
         $pages = new CPagination($count);
 
@@ -28,10 +29,10 @@ class Letters extends BaseLetters {
         if ($doc) {
             $doc->setAttributes($post);
             if (isset($post['signed_recieve'])) {
-                $model->signed_recieve = strtotime($post['signed_recieve']);
+                $doc->signed_recieve = strtotime($post['signed_recieve']);
             }
             if (isset($post['signed_date'])) {
-                $model->signed_date = strtotime($post['signed_date']);
+                $doc->signed_date = strtotime($post['signed_date']);
             }
             if ($doc->save(FALSE)) {
                 return 1;
