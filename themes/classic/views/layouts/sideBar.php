@@ -25,6 +25,11 @@
         <ul class="sidebar-menu">
             <li class="header">Điều hướng chính</li>
             <li class="active">
+                <a href="<?php echo Yii::app()->createUrl('search/index') ?>">
+                    <span>Tìm kiếm</span>
+                </a>
+            </li>
+            <li class="active">
                 <a href="<?php echo Yii::app()->createUrl('documentary/index') ?>">
                     <span>Yêu cầu tương trợ tư pháp <br>hình sự đi</span>
                 </a>
@@ -45,12 +50,12 @@
                 </a>
             </li>
             <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('case/index')?>">
+                <a href="<?php echo Yii::app()->createUrl('case/index') ?>">
                     <span>Vụ án</span>
                 </a>
             </li>
             <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('letter/index')?>">
+                <a href="<?php echo Yii::app()->createUrl('letter/index') ?>">
                     <span>Đơn thư</span>
                 </a>
             </li>
@@ -60,7 +65,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('wantedAbroad/index')?>">
+                <a href="<?php echo Yii::app()->createUrl('wantedAbroad/index') ?>">
                     <span>Truy nã nước ngoài</span>
                 </a>
             </li>

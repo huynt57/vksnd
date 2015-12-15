@@ -54,15 +54,31 @@ class Cases extends BaseCases {
     }
 
     public function searchByCondition($attr) {
-        $keyword = NULL;
+        $criteria = new CDbCriteria;
+        if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
+            $date_start = strtotime($attr['date_start']);
+            $date_end = strtotime($attr['date_end']);
+            $criteria->addBetweenCondition('date_prosecution', $date_start, $date_end);
+        }
+        if (!empty($attr['obj_name'])) {
+            $obj_name = $attr['obj_name'];
+            $criteria->addSearchCondition('accused', $obj_name);
+        }
+        if (!empty($attr['nation'])) {
+            $nation = $attr['nation'];
+            $criteria->addSearchCondition('nation', $nation);
+        }
+        if (!empty($attr['assignee'])) {
+            $assignee = $attr['assignee'];
+            $criteria->addSearchCondition('investigator', $assignee);
+        }
         if (!empty($attr['keyword'])) {
             $keyword = $attr['keyword'];
+            $criteria->addSearchCondition('', 'Reviewing', true, "AND", "LIKE");
+            $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
+            $criteria->addSearchCondition();
         }
-        $criteria = new CDbCriteria;
-        $criteria->addSearchCondition('t.status', 'Reviewing', true, "AND", "LIKE");
-        $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
-        $criteria->addSearchCondition();
-        $result = Documentary::model()->findAll($criteria);
+        $result = Cases::model()->findAll($criteria);
         return $result;
     }
 
