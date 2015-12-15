@@ -6,15 +6,15 @@
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_1" data-toggle="tab">Đơn thư</a></li>
-                    <li><a href="#tab_2" data-toggle="tab">Tab</a></li>
-                    <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
-                    <li><a href="#tab_4" data-toggle="tab">Đơn thư</a></li>
-                    <li><a href="#tab_5" data-toggle="tab">Tab</a></li>
-                    <li><a href="#tab_6" data-toggle="tab">Tab 3</a></li>
-                    <li><a href="#tab_7" data-toggle="tab">Tab</a></li>
-                    <li><a href="#tab_8" data-toggle="tab">Tab 3</a></li>
-                    <li><a href="#tab_9" data-toggle="tab">Tab</a></li>
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Yêu cầu tương trợ <br>tư pháp hình sự đi</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">Yêu cầu tương trợ <br>tư pháp hình sự đến</a></li>
+                    <li><a href="#tab_3" data-toggle="tab">Tham gia <br>ý kiến   </a></li>
+                    <li><a href="#tab_4" data-toggle="tab">Văn bản có <br>yếu tố nước ngoài </a></li>
+                    <li><a href="#tab_5" data-toggle="tab">Vụ án</a></li>
+                    <li><a href="#tab_6" data-toggle="tab">Đơn thư</a></li>
+                    <li><a href="#tab_7" data-toggle="tab">Thẩm định,<br> hướng dẫn</a></li>
+                    <li><a href="#tab_8" data-toggle="tab">Truy nã <br>nước ngoài</a></li>
+                    <li><a href="#tab_9" data-toggle="tab">Vụ việc có <br>yếu tố nước ngoài khác</a></li>
 
                 </ul>
                 <div class="tab-content">

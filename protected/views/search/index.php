@@ -22,7 +22,7 @@
                     <h3 class="box-title">Tìm kiếm</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="#">
+                <form role="form" method="GET" action="<?php echo Yii::app()->createUrl('search/searchResult') ?>">
                     <div class="box-body">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -30,8 +30,10 @@
                                 <input type="text" class="form-control" id="keyword" name="keyword" >
                             </div>
                         </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-primary" id="advance_search">Bật tìm kiếm nâng cao</button>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="advance_search">Bật tìm kiếm nâng cao</button>
+                            </div>
                         </div>
                         <div id="hide_form">
                             <div class="col-md-6">
