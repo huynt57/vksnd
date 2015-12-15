@@ -10,7 +10,7 @@ class Documentary extends BaseDocumentary {
 
     public function getDocumentary() {
         $criteria = new CDbCriteria();
-         $criteria->order = 'id DESC';
+        $criteria->order = 'id DESC';
         $count = Documentary::model()->count($criteria);
         $pages = new CPagination($count);
 
@@ -57,6 +57,19 @@ class Documentary extends BaseDocumentary {
             return TRUE;
         }
         return FALSE;
+    }
+
+    public function searchByCondition($attr) {
+        $keyword = NULL;
+        if (!empty($attr['keyword'])) {
+            $keyword = $attr['keyword'];
+        }
+        $criteria = new CDbCriteria;
+        $criteria->addSearchCondition('t.status', 'Reviewing', true, "AND", "LIKE");
+        $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
+        $criteria->addSearchCondition();
+        $result = Documentary::model()->findAll($criteria);
+        return $result;
     }
 
 }

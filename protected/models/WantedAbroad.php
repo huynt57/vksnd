@@ -52,5 +52,18 @@ class WantedAbroad extends BaseWantedAbroad {
         }
         return FALSE;
     }
+    
+     public function searchByCondition($attr) {
+        $keyword = NULL;
+        if (!empty($attr['keyword'])) {
+            $keyword = $attr['keyword'];
+        }
+        $criteria = new CDbCriteria;
+        $criteria->addSearchCondition('t.status', 'Reviewing', true, "AND", "LIKE");
+        $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
+        $criteria->addSearchCondition();
+        $result = Documentary::model()->findAll($criteria);
+        return $result;
+    }
 
 }
