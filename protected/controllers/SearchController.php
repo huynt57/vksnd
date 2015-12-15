@@ -11,10 +11,14 @@ class SearchController extends Controller {
             $cases_data = Cases::model()->searchByCondition($_POST);
         }
     }
-    
-    public function actionSearchResult()
-    {
+
+    public function actionSearchResult() {
         $this->render('searchResult');
+    }
+
+    public function actionResultDocumentary() {
+        $data = Documentary::model()->searchByCondition($_GET);
+        $this->render('resultDocumentary', $data);
     }
 
     // Uncomment the following methods and override them if needed

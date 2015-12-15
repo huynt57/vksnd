@@ -29,9 +29,8 @@ class UserController extends Controller {
             }
         }
     }
-    
-    public function actionLogout()
-    {
+
+    public function actionLogout() {
         Yii::app()->session->destroy();
         $this->redirect(Yii::app()->createUrl('user/login'));
     }
