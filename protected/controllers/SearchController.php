@@ -21,6 +21,21 @@ class SearchController extends Controller {
         $this->render('resultDocumentary', $data);
     }
 
+    public function actionResultCase() {
+        $data = Cases::model()->searchByCondition($_GET);
+        $this->render('resultCase', $data);
+    }
+
+    public function actionResultLetter() {
+        $data = Letters::model()->searchByCondition($_GET);
+        $this->render('resultLetter', $data);
+    }
+
+    public function actionResulWantedAbroad() {
+        $data = WantedAbroad::model()->searchByCondition($_GET);
+        $this->render('resultWantedAbroad', $data);
+    }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

@@ -10,7 +10,7 @@
                     <li><a href="#tab_2" data-toggle="tab">Yêu cầu tương trợ <br>tư pháp hình sự đến</a></li>
                     <li><a href="#tab_3" data-toggle="tab">Tham gia <br>ý kiến   </a></li>
                     <li><a href="#tab_4" data-toggle="tab">Văn bản có <br>yếu tố nước ngoài </a></li>
-                    <li><a href="#tab_5" data-toggle="tab">Vụ án</a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultCase') ?>">Vụ án</a></li>
                     <li><a href="#tab_6" data-toggle="tab">Đơn thư</a></li>
                     <li><a href="#tab_7" data-toggle="tab">Thẩm định,<br> hướng dẫn</a></li>
                     <li><a href="#tab_8" data-toggle="tab">Truy nã <br>nước ngoài</a></li>
@@ -51,6 +51,23 @@
                                 </tr>
                             <?php endforeach; ?>
                         </table>
+                        <div class="box-footer clearfix">
+                            <?php
+                            $this->widget('CLinkPager', array(
+                                'pages' => $pages,
+                                'maxButtonCount' => Yii::app()->params['btn_cnt'],
+                                'htmlOptions' => array('class' => 'pagination pagination-sm no-margin pull-right',
+                                ),
+                                'header' => '',
+                                'prevPageLabel' => 'Trước',
+                                'nextPageLabel' => 'Sau',
+                                'firstPageLabel' => 'Đầu tiên',
+                                'lastPageLabel' => 'Cuối cùng',
+                                'selectedPageCssClass' => 'active',
+                                    )
+                            )
+                            ?>
+                        </div>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
