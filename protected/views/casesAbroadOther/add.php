@@ -22,7 +22,7 @@
                     <h3 class="box-title">Thêm mới tài liệu</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('documentary/addProcess') ?>">
+                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('CasesAbroadOther/addProcess') ?>">
 
                     <div class="box-body">
                         <div class="col-md-6">
