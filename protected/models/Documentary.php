@@ -72,7 +72,7 @@ class Documentary extends BaseDocumentary {
         }
         if (!empty($attr['nation'])) {
             $nation = $attr['nation'];
-            $criteria->addSearchCondition('nation', $nation);
+            $criteria->addSearchCondition('country', $nation);
         }
         if (!empty($attr['assignee'])) {
             $assignee = $attr['assignee'];
@@ -81,6 +81,7 @@ class Documentary extends BaseDocumentary {
         if (!empty($attr['keyword'])) {
             $keyword = $attr['keyword'];
             $criteria->addSearchCondition('shortcut', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('number', $keyword, true, "OR", "LIKE");
             $criteria->addSearchCondition('abstract', $keyword, true, "OR", "LIKE");
             $criteria->addSearchCondition('country', $keyword, true, "OR", "LIKE");
             $criteria->addSearchCondition('did_by', $keyword, true, "OR", "LIKE");

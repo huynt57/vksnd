@@ -31,7 +31,7 @@ class SearchController extends Controller {
         $this->render('resultLetter', $data);
     }
 
-    public function actionResulWantedAbroad() {
+    public function actionResultWantedAbroad() {
         $data = WantedAbroad::model()->searchByCondition($_GET);
         $this->render('resultWantedAbroad', $data);
     }

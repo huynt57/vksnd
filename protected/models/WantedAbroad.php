@@ -52,18 +52,45 @@ class WantedAbroad extends BaseWantedAbroad {
         }
         return FALSE;
     }
-    
-     public function searchByCondition($attr) {
-        $keyword = NULL;
+
+    public function searchByCondition($attr) {
+        $criteria = new CDbCriteria;
+        if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
+            $date_start = strtotime($attr['date_start']);
+            $date_end = strtotime($attr['date_end']);
+            $criteria->addBetweenCondition('date_publish', $date_start, $date_end);
+        }
+        if (!empty($attr['obj_name'])) {
+            $obj_name = $attr['obj_name'];
+            $criteria->addSearchCondition('object_name', $obj_name);
+        }
+        if (!empty($attr['nation'])) {
+            $nation = $attr['nation'];
+            $criteria->addSearchCondition('nation_request', $nation);
+        }
+        if (!empty($attr['assignee'])) {
+            $assignee = $attr['assignee'];
+            $criteria->addSearchCondition('staff_assigned', $assignee);
+        }
         if (!empty($attr['keyword'])) {
             $keyword = $attr['keyword'];
+            $criteria->addSearchCondition('nation_request', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('object_name', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('wanted_number', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('crime', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('staff_assigned', $keyword, true, "OR", "LIKE");
         }
-        $criteria = new CDbCriteria;
-        $criteria->addSearchCondition('t.status', 'Reviewing', true, "AND", "LIKE");
-        $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
-        $criteria->addSearchCondition();
-        $result = Documentary::model()->findAll($criteria);
-        return $result;
+        $count = WantedAbroad::model()->count($criteria);
+        $pages = new CPagination($count);
+
+        // results per page
+        $pages->pageSize = Yii::app()->params['limit'];
+        $pages->applyLimit($criteria);
+        $result = WantedAbroad::model()->findAll($criteria);
+        return array(
+            'models' => $result,
+            'pages' => $pages
+        );
     }
 
 }

@@ -1,19 +1,4 @@
-<div class="box-body">
-    <?php if (Yii::app()->user->hasFlash('error')): ?>
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-ban"></i> Cảnh báo !</h4>
-            <?php echo Yii::app()->user->getFlash('error'); ?>
-        </div>
-    <?php endif; ?>
-    <?php if (Yii::app()->user->hasFlash('success')): ?>
-        <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-check"></i> Thành công !</h4>
-            <?php echo Yii::app()->user->getFlash('success'); ?>
-        </div>
-    <?php endif; ?>
-</div>
+
 <section class="content">
     <div class="row">
         <div class="col-md-12">
@@ -22,7 +7,7 @@
                     <h3 class="box-title">Tìm kiếm</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="GET" action="<?php echo Yii::app()->createUrl('search/searchResult') ?>">
+                <form role="form" method="GET" action="<?php echo Yii::app()->createUrl('search/resultDocumentary') ?>">
                     <div class="box-body">
                         <div class="col-md-12">
                             <div class="form-group">

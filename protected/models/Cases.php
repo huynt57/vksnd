@@ -64,22 +64,29 @@ class Cases extends BaseCases {
             $obj_name = $attr['obj_name'];
             $criteria->addSearchCondition('accused', $obj_name);
         }
-        if (!empty($attr['nation'])) {
-            $nation = $attr['nation'];
-            $criteria->addSearchCondition('nation', $nation);
-        }
         if (!empty($attr['assignee'])) {
             $assignee = $attr['assignee'];
             $criteria->addSearchCondition('investigator', $assignee);
         }
         if (!empty($attr['keyword'])) {
             $keyword = $attr['keyword'];
-            $criteria->addSearchCondition('', 'Reviewing', true, "AND", "LIKE");
-            $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
-            $criteria->addSearchCondition();
+            $criteria->addSearchCondition('accused', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('investigator', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('detention_period', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('investigation_period', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('case_name', $keyword, true, "OR", "LIKE");
         }
+        $count = Cases::model()->count($criteria);
+        $pages = new CPagination($count);
+
+        // results per page
+        $pages->pageSize = Yii::app()->params['limit'];
+        $pages->applyLimit($criteria);
         $result = Cases::model()->findAll($criteria);
-        return $result;
+        return array(
+            'models' => $result,
+            'pages' => $pages
+        );
     }
 
 }
