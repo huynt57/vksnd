@@ -22,10 +22,10 @@ class CasesAbroadOtherController extends Controller
             $result = CasesAbroadOther::model()->add($_POST);
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
-                $this->redirect(Yii::app()->createUrl('documentary/add'));
+                $this->redirect(Yii::app()->createUrl('casesAbroadOther/add'));
             } else {
                 Yii::app()->user->setFlash('error', 'Thêm dữ liệu thất bại !');
-                $this->redirect(Yii::app()->createUrl('documentary/add'));
+                $this->redirect(Yii::app()->createUrl('casesAbroadOther/add'));
             }
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
@@ -46,10 +46,10 @@ class CasesAbroadOtherController extends Controller
         $result = CasesAbroadOther::model()->findByPk($id);
         if ($result->delete()) {
             Yii::app()->user->setFlash('success', 'Xóa dữ liệu thành công !');
-            $this->redirect(Yii::app()->createUrl('documentary/index'));
+            $this->redirect(Yii::app()->createUrl('casesAbroadOther/index'));
         } else {
             Yii::app()->user->setFlash('error', 'Xóa dữ liệu thất bại !');
-            $this->redirect(Yii::app()->createUrl('documentary/index'));
+            $this->redirect(Yii::app()->createUrl('casesAbroadOther/index'));
         }
     }
 
@@ -69,13 +69,13 @@ class CasesAbroadOtherController extends Controller
             $result = CasesAbroadOther::model()->edit($_POST);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
-                $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));
+                $this->redirect(Yii::app()->createUrl('casesAbroadOther/edit', array('id' => $post['id'])));
             } else if ($result == 2) {
                 Yii::app()->user->setFlash('error', 'Cập nhật dữ liệu thất bại !');
-                $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));
+                $this->redirect(Yii::app()->createUrl('casesAbroadOther/edit', array('id' => $post['id'])));
             } else {
                 Yii::app()->user->setFlash('error', 'Không tồn tại tài liệu !');
-                $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));
+                $this->redirect(Yii::app()->createUrl('casesAbroadOther/edit', array('id' => $post['id'])));
             }
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
