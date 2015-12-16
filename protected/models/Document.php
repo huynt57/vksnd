@@ -27,6 +27,7 @@ class Document extends BaseDocument {
     public function edit($post) {
         $doc = Document::model()->findByPk($post['id']);
         if ($doc) {
+            $doc->setAttributes($post);
             if ($doc->save(FALSE)) {
                 return 1;
             } else {
