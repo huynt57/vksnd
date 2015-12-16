@@ -15,7 +15,6 @@
                     <li><a href="#tab_7" data-toggle="tab">Thẩm định,<br> hướng dẫn</a></li>
                     <li><a href="#tab_8" data-toggle="tab">Truy nã <br>nước ngoài</a></li>
                     <li><a href="#tab_9" data-toggle="tab">Vụ việc có <br>yếu tố nước ngoài khác</a></li>
-
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
