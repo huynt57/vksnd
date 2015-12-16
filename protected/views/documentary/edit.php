@@ -35,16 +35,25 @@
                                 <input type="text" class="form-control" id="time_in_doc" name="time_in_doc" value="<?php echo date('m/d/Y', $model->time_in_doc) ?>" >
                             </div>
                             <div class="form-group">
+                                <label for="reciever">Nơi gửi</label>
+                                <input type="text" name="reciever" class="form-control" id="reciever" value="<?php echo $model->reciever ?>" >
+                            </div>
+                            <div class="form-group">
                                 <label for="abstract">Trích yếu</label>
                                 <textarea rows="5" class="form-control" id="abstract" name="abstract" value="<?php echo $model->abstract ?>" ><?php echo $model->abstract ?></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="shortcut">Tóm tắt</label>
-                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut" value="<?php echo $model->shortcut ?>" ><?php echo $model->shortcut ?></textarea>
-                            </div>
+                           
                             <input type="hidden" name="id" value="<?php echo $model->id; ?>">
                         </div>
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="signed_user">Người ký</label>
+                                <input type="text" class="form-control" id="signed_user" value="<?php echo $model->signed_user ?>" >
+                            </div>
+                             <div class="form-group">
+                                <label for="shortcut">Tóm tắt</label>
+                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut" value="<?php echo $model->shortcut ?>" ><?php echo $model->shortcut ?></textarea>
+                            </div>
                             <div class="form-group">
                                 <label for="country">Tên quốc gia</label>
                                 <input type="text" class="form-control" id="country" value="<?php echo $model->country ?>" >
@@ -57,14 +66,8 @@
                                 <label for="obj_name">Tên đối tượng</label>
                                 <input type="text" class="form-control" id="obj_name" value="<?php echo $model->obj_name ?>" >
                             </div>
-                            <div class="form-group">
-                                <label for="reciever">Nơi gửi</label>
-                                <input type="text" name="reciever" class="form-control" id="reciever" value="<?php echo $model->reciever ?>" >
-                            </div>
-                            <div class="form-group">
-                                <label for="signed_user">Người ký</label>
-                                <input type="text" class="form-control" id="signed_user" value="<?php echo $model->signed_user ?>" >
-                            </div>
+                           
+                            
                             <div class="form-group">
                                 <label for="status">Tình trạng</label>
                                 <select class="form-control" onchange="showOff()" id="change_status">

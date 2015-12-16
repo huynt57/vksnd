@@ -22,7 +22,7 @@
                     <h3 class="box-title">Cập nhật tài liệu</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('document/editprocess') ?>">
+                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('document/editprocess') ?>"  enctype="multipart/form-data">
 
                     <div class="box-body">
                         <div class="col-md-12">
@@ -33,6 +33,11 @@
                             <div class="form-group">
                                 <label for="path">Đường dẫn</label>
                                 <input type="text" class="form-control" id="path" name="path" value="<?php echo $model->path ?>" >
+                            </div
+                            <div class="form-group">
+                                <label for="exampleInputFile">Chọn file</label>
+                                <input type="file" id="exampleInputFile" name="document">
+                           
                             </div>
 
                             <input type="hidden" name="id" value="<?php echo $model->id; ?>">
