@@ -62,7 +62,7 @@
                     <?php
                     $this->widget('CLinkPager', array(
                         'pages' => $pages,
-                        'maxButtonCount' => Yii::app()->params['btn_cnt'],
+                        //    'maxButtonCount' => Yii::app()->params['btn_cnt'],
                         'htmlOptions' => array('class' => 'pagination pagination-sm no-margin pull-right',
                         ),
                         'header' => '',

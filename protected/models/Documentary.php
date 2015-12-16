@@ -60,16 +60,47 @@ class Documentary extends BaseDocumentary {
     }
 
     public function searchByCondition($attr) {
-        $keyword = NULL;
+        $criteria = new CDbCriteria;
+        if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
+//            $date_start = strtotime($attr['date_start']);
+//            $date_end = strtotime($attr['date_end']);
+//            $criteria->addBetweenCondition('date_prosecution', $date_start, $date_end);
+        }
+        if (!empty($attr['obj_name'])) {
+            $obj_name = $attr['obj_name'];
+            $criteria->addSearchCondition('obj_name', $obj_name);
+        }
+        if (!empty($attr['nation'])) {
+            $nation = $attr['nation'];
+            $criteria->addSearchCondition('nation', $nation);
+        }
+        if (!empty($attr['assignee'])) {
+            $assignee = $attr['assignee'];
+            $criteria->addSearchCondition('did_by', $assignee);
+        }
         if (!empty($attr['keyword'])) {
             $keyword = $attr['keyword'];
+            $criteria->addSearchCondition('shortcut', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('abstract', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('country', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('did_by', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('obj_name', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('number_doc_finish', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('number_doc_send', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('signed_user', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('reciever', $keyword, true, "OR", "LIKE");
         }
-        $criteria = new CDbCriteria;
-        $criteria->addSearchCondition('t.status', 'Reviewing', true, "AND", "LIKE");
-        $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
-        $criteria->addSearchCondition();
+        $count = Documentary::model()->count($criteria);
+        $pages = new CPagination($count);
+
+        // results per page
+        $pages->pageSize = Yii::app()->params['limit'];
+        $pages->applyLimit($criteria);
         $result = Documentary::model()->findAll($criteria);
-        return $result;
+        return array(
+            'models' => $result,
+            'pages' => $pages
+        );
     }
 
 }
