@@ -2,13 +2,13 @@
 
 Yii::import('application.models._base.BaseGuide');
 
-class Guide extends BaseGuide
-{
-	public static function model($className=__CLASS__) {
-		return parent::model($className);
-	}
-        
-        public function getDocumentary() {
+class Guide extends BaseGuide {
+
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
+
+    public function getDocumentary() {
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
         $count = Guide::model()->count($criteria);
@@ -103,4 +103,5 @@ class Guide extends BaseGuide
             'pages' => $pages
         );
     }
+
 }
