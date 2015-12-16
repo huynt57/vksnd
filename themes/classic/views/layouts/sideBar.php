@@ -75,20 +75,20 @@
                 </a>
             </li>
             <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('document/index')?>">
+                <a href="<?php echo Yii::app()->createUrl('document/index') ?>">
                     <span>Thư viện</span>
                 </a>
             </li>
-<!--            <li class="active">
-                <a href=" #">
-                    <span>Tìm kiếm</span>
-                </a>
-            </li>-->
-<!--            <li class="active">
-                <a href=" #">
-                    <span>Thống kê</span>
-                </a>
-            </li>-->
+            <!--            <li class="active">
+                            <a href=" #">
+                                <span>Tìm kiếm</span>
+                            </a>
+                        </li>-->
+            <!--            <li class="active">
+                            <a href=" #">
+                                <span>Thống kê</span>
+                            </a>
+                        </li>-->
             <li class="active">
                 <a href=" #">
                     <span>Backup</span>

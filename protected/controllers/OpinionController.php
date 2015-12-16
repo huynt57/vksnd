@@ -12,14 +12,14 @@ class OpinionController extends Controller {
     }
 
     public function actionIndex() {
-        $data = Documentary::model()->getDocumentary();
+        $data = Opinion::model()->getDocumentary();
         $this->render('index', $data);
     }
 
     public function actionAddProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Documentary::model()->add($_POST);
+            $result = Opinion::model()->add($_POST);
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('documentary/add'));
@@ -43,7 +43,7 @@ class OpinionController extends Controller {
 
     public function actionDelete() {
         $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
-        $result = Documentary::model()->findByPk($id);
+        $result = Opinion::model()->findByPk($id);
         if ($result->delete()) {
             Yii::app()->user->setFlash('success', 'Xóa dữ liệu thành công !');
             $this->redirect(Yii::app()->createUrl('documentary/index'));
@@ -56,7 +56,7 @@ class OpinionController extends Controller {
     public function actionEdit() {
         try {
             $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
-            $result = Documentary::model()->findByPk($id);
+            $result = Opinion::model()->findByPk($id);
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
         }
@@ -66,7 +66,7 @@ class OpinionController extends Controller {
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Documentary::model()->edit($_POST);
+            $result = Opinion::model()->edit($_POST);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));

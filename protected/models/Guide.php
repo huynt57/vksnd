@@ -11,13 +11,13 @@ class Guide extends BaseGuide
         public function getDocumentary() {
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
-        $count = Documentary::model()->count($criteria);
+        $count = Guide::model()->count($criteria);
         $pages = new CPagination($count);
 
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
-        $models = Documentary::model()->findAll($criteria);
+        $models = Guide::model()->findAll($criteria);
         return array(
             'models' => $models,
             'pages' => $pages
@@ -25,7 +25,7 @@ class Guide extends BaseGuide
     }
 
     public function edit($post) {
-        $doc = Documentary::model()->findByPk($post['id']);
+        $doc = Guide::model()->findByPk($post['id']);
         if ($doc) {
             $doc->setAttributes($post);
             if (isset($post['time_in_doc'])) {
@@ -45,7 +45,7 @@ class Guide extends BaseGuide
     }
 
     public function add($post) {
-        $model = new Documentary;
+        $model = new Guide;
         $model->setAttributes($post);
         if (isset($post['time_in_doc'])) {
             $model->time_in_doc = strtotime($post['time_in_doc']);
@@ -91,13 +91,13 @@ class Guide extends BaseGuide
             $criteria->addSearchCondition('signed_user', $keyword, true, "OR", "LIKE");
             $criteria->addSearchCondition('reciever', $keyword, true, "OR", "LIKE");
         }
-        $count = Documentary::model()->count($criteria);
+        $count = Guide::model()->count($criteria);
         $pages = new CPagination($count);
 
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
-        $result = Documentary::model()->findAll($criteria);
+        $result = Guide::model()->findAll($criteria);
         return array(
             'models' => $result,
             'pages' => $pages

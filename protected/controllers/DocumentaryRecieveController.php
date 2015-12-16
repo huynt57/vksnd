@@ -1,8 +1,8 @@
 <?php
 
-class DocumentaryRecieveController extends Controller
-{
-	protected function beforeAction($action) {
+class DocumentaryRecieveController extends Controller {
+
+    protected function beforeAction($action) {
         if ($action !== 'login') {
             if (empty(Yii::app()->session['logged'])) {
                 $this->redirect(Yii::app()->createUrl('user/login'));
@@ -12,14 +12,14 @@ class DocumentaryRecieveController extends Controller
     }
 
     public function actionIndex() {
-        $data = Documentary::model()->getDocumentary();
+        $data = DocumentaryRecieve::model()->getDocumentary();
         $this->render('index', $data);
     }
 
     public function actionAddProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Documentary::model()->add($_POST);
+            $result = DocumentaryRecieve::model()->add($_POST);
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('documentary/add'));
@@ -43,7 +43,7 @@ class DocumentaryRecieveController extends Controller
 
     public function actionDelete() {
         $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
-        $result = Documentary::model()->findByPk($id);
+        $result = DocumentaryRecieve::model()->findByPk($id);
         if ($result->delete()) {
             Yii::app()->user->setFlash('success', 'Xóa dữ liệu thành công !');
             $this->redirect(Yii::app()->createUrl('documentary/index'));
@@ -56,7 +56,7 @@ class DocumentaryRecieveController extends Controller
     public function actionEdit() {
         try {
             $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
-            $result = Documentary::model()->findByPk($id);
+            $result = DocumentaryRecieve::model()->findByPk($id);
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
         }
@@ -66,7 +66,7 @@ class DocumentaryRecieveController extends Controller
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Documentary::model()->edit($_POST);
+            $result = DocumentaryRecieve::model()->edit($_POST);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('documentary/edit', array('id' => $post['id'])));
@@ -82,30 +82,30 @@ class DocumentaryRecieveController extends Controller
         }
     }
 
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
+    // Uncomment the following methods and override them if needed
+    /*
+      public function filters()
+      {
+      // return the filter configuration for this controller, e.g.:
+      return array(
+      'inlineFilterName',
+      array(
+      'class'=>'path.to.FilterClass',
+      'propertyName'=>'propertyValue',
+      ),
+      );
+      }
 
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
-	*/
+      public function actions()
+      {
+      // return external action classes, e.g.:
+      return array(
+      'action1'=>'path.to.ActionClass',
+      'action2'=>array(
+      'class'=>'path.to.AnotherActionClass',
+      'propertyName'=>'propertyValue',
+      ),
+      );
+      }
+     */
 }
