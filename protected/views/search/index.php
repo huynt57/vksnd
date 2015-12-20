@@ -1,3 +1,4 @@
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <div class="box-body">
     <?php if (Yii::app()->user->hasFlash('error')): ?>
         <div class="alert alert-danger alert-dismissable">
@@ -49,7 +50,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="nation">Quốc gia</label>
-                                    <input type="text" class="form-control" id="nation" name="nation" >
+                                    <input type="text" class="form-control" id="nation" name="nation" id="nation">
                                 </div>
                                 <div class="form-group">
                                     <label for="assignee">Cán bộ thụ lý</label>
@@ -86,5 +87,36 @@
         });
 
 
+    });
+</script>
+<script>
+    $(function () {
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("#nation").autocomplete({
+            source: availableTags
+        });
     });
 </script>
