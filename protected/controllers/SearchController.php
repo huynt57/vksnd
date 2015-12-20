@@ -18,6 +18,9 @@ class SearchController extends Controller {
 
     public function actionResultDocumentary() {
         $data = Documentary::model()->searchByCondition($_GET);
+        $cnt_cases_abroad = Documentary::model()->searchByCondition($_GET, true);
+        var_dump($cnt_cases_abroad);
+        die;
         $this->render('resultDocumentary', $data);
     }
 
