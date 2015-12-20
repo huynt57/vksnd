@@ -22,27 +22,27 @@ class SearchController extends Controller {
     }
 
     public function actionResultDocumentaryRecieve() {
-        $data = Documentary::model()->searchByCondition($_GET);
+        $data = DocumentaryRecieve::model()->searchByCondition($_GET);
         $this->render('resultDocumentaryRecieve', $data);
     }
 
     public function actionResultGuide() {
-        $data = Documentary::model()->searchByCondition($_GET);
+        $data = Guide::model()->searchByCondition($_GET);
         $this->render('resultGuide', $data);
     }
 
     public function actionResultOpinion() {
-        $data = Documentary::model()->searchByCondition($_GET);
+        $data = Opinion::model()->searchByCondition($_GET);
         $this->render('resultOpinion', $data);
     }
 
     public function actionResultDocumentaryAbroad() {
-        $data = Documentary::model()->searchByCondition($_GET);
+        $data = DocumentaryAbroad::model()->searchByCondition($_GET);
         $this->render('resultDocumentaryAbroad', $data);
     }
 
     public function actionResultCasesAbroadOther() {
-        $data = Documentary::model()->searchByCondition($_GET);
+        $data = CasesAbroadOther::model()->searchByCondition($_GET);
         $this->render('resultCasesAbroadOther', $data);
     }
 
