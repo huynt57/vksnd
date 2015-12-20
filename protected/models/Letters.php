@@ -10,7 +10,7 @@ class Letters extends BaseLetters {
 
     public function getLetter() {
         $criteria = new CDbCriteria();
-         $criteria->order = 'id DESC';
+        $criteria->order = 'id DESC';
         $count = Letters::model()->count($criteria);
         $pages = new CPagination($count);
 
@@ -58,18 +58,38 @@ class Letters extends BaseLetters {
         }
         return FALSE;
     }
-    
-     public function searchByCondition($attr) {
-        $keyword = NULL;
+
+    public function searchByCondition($attr) {
+        $criteria = new CDbCriteria;
+        if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
+            $date_start = strtotime($attr['date_start']);
+            $date_end = strtotime($attr['date_end']);
+            $criteria->addBetweenCondition('signed_date', $date_start, $date_end, 'OR');
+            $criteria->addBetweenCondition('signed_recieve', $date_start, $date_end, 'OR');
+        }
+        if (!empty($attr['assignee'])) {
+            $assignee = $attr['assignee'];
+            $criteria->addSearchCondition('staff_assigned', $assignee);
+        }
         if (!empty($attr['keyword'])) {
             $keyword = $attr['keyword'];
+            $criteria->addSearchCondition('content', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('staff_assigned', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('verification_period', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('decided_assigned', $keyword, true, "OR", "LIKE");
+            $criteria->addSearchCondition('letter_created', $keyword, true, "OR", "LIKE");
         }
-        $criteria = new CDbCriteria;
-        $criteria->addSearchCondition('t.status', 'Reviewing', true, "AND", "LIKE");
-        $criteria->addSearchCondition("status", 'On Hold', 'true', 'OR');
-        $criteria->addSearchCondition();
-        $result = Documentary::model()->findAll($criteria);
-        return $result;
+        $count = Letters::model()->count($criteria);
+        $pages = new CPagination($count);
+
+        // results per page
+        $pages->pageSize = Yii::app()->params['limit'];
+        $pages->applyLimit($criteria);
+        $result = Letters::model()->findAll($criteria);
+        return array(
+            'models' => $result,
+            'pages' => $pages
+        );
     }
 
 }

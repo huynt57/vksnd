@@ -35,15 +35,24 @@
                                 <input type="text" class="form-control" id="time_in_doc" name="time_in_doc"  >
                             </div>
                             <div class="form-group">
+                                <label for="reciever">Nơi gửi</label>
+                                <input type="text" name="reciever" class="form-control" id="reciever"  >
+                            </div>
+                            <div class="form-group">
                                 <label for="abstract">Trích yếu</label>
                                 <textarea rows="5" class="form-control" id="abstract" name="abstract"  ></textarea>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="signed_user">Người ký</label>
+                                <input type="text" class="form-control" id="signed_user"  >
                             </div>
                             <div class="form-group">
                                 <label for="shortcut">Tóm tắt</label>
                                 <textarea rows="5" class="form-control" id="shortcut" name="shortcut"  ></textarea>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="country">Tên quốc gia</label>
                                 <input type="text" class="form-control" id="country" >
@@ -56,14 +65,8 @@
                                 <label for="obj_name">Tên đối tượng</label>
                                 <input type="text" class="form-control" id="obj_name" >
                             </div>
-                            <div class="form-group">
-                                <label for="reciever">Nơi gửi</label>
-                                <input type="text" name="reciever" class="form-control" id="reciever"  >
-                            </div>
-                            <div class="form-group">
-                                <label for="signed_user">Người ký</label>
-                                <input type="text" class="form-control" id="signed_user"  >
-                            </div>
+
+
                             <div class="form-group">
                                 <label for="status">Tình trạng</label>
                                 <select class="form-control" onchange="showOff();" id="change_status">

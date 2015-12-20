@@ -6,15 +6,15 @@
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab_1" data-toggle="tab">Yêu cầu tương trợ <br>tư pháp hình sự đi</a></li>
-                    <li><a href="#tab_2" data-toggle="tab">Yêu cầu tương trợ <br>tư pháp hình sự đến</a></li>
-                    <li><a href="#tab_3" data-toggle="tab">Tham gia <br>ý kiến   </a></li>
-                    <li><a href="#tab_4" data-toggle="tab">Văn bản có <br>yếu tố nước ngoài </a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultCase')?>" data-toggle="tab">Vụ án</a></li>
-                    <li><a href="#tab_6" data-toggle="tab">Đơn thư</a></li>
-                    <li><a href="#tab_7" data-toggle="tab">Thẩm định,<br> hướng dẫn</a></li>
-                    <li><a href="#tab_8" data-toggle="tab">Truy nã <br>nước ngoài</a></li>
-                    <li><a href="#tab_9" data-toggle="tab">Vụ việc có <br>yếu tố nước ngoài khác</a></li>
+                     <li  ><a href="<?php echo Yii::app()->createUrl('search/resultDocumentary', $_GET) ?>">Yêu cầu tương trợ <br>tư pháp hình sự đi</a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentaryRecieve', $_GET) ?>"  >Yêu cầu tương trợ <br>tư pháp hình sự đến</a></li>
+                    <li ><a href="<?php echo Yii::app()->createUrl('search/resultOpinion', $_GET) ?>"  >Tham gia <br>ý kiến   </a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentaryAbroad', $_GET) ?>"  >Văn bản có <br>yếu tố nước ngoài </a></li>
+                    <li class="active"><a href="<?php echo Yii::app()->createUrl('search/resultCase', $_GET) ?>">Vụ án</a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultLetter', $_GET) ?>">Đơn thư</a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultGuide', $_GET) ?>"  >Thẩm định,<br> hướng dẫn</a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultWantedAbroad', $_GET) ?>">Truy nã <br>nước ngoài</a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultCasesAbroadOther', $_GET) ?>"  >Vụ việc có <br>yếu tố nước ngoài khác</a></li>
 
                 </ul>
                 <div class="tab-content">

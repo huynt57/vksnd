@@ -19,86 +19,85 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Cập nhật tài liệu</h3>
+                    <h3 class="box-title">Thêm mới tài liệu</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('documentary/editprocess') ?>">
+                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('opinion/addProcess') ?>">
 
                     <div class="box-body">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="number">Số công văn</label>
-                                <input type="text" class="form-control" id="number" name="number" value="<?php echo $model->number ?>">
+                                <input type="text" class="form-control" id="number" name="number" >
                             </div>
                             <div class="form-group">
                                 <label for="time_in_doc">Thời gian ghi trên văn bản</label>
-                                <input type="text" class="form-control" id="time_in_doc" name="time_in_doc" value="<?php echo date('m/d/Y', $model->time_in_doc) ?>" >
+                                <input type="text" class="form-control" id="time_in_doc" name="time_in_doc"  >
                             </div>
                             <div class="form-group">
                                 <label for="reciever">Nơi gửi</label>
-                                <input type="text" name="reciever" class="form-control" id="reciever" value="<?php echo $model->reciever ?>" >
+                                <input type="text" name="reciever" class="form-control" id="reciever"  >
                             </div>
                             <div class="form-group">
                                 <label for="abstract">Trích yếu</label>
-                                <textarea rows="5" class="form-control" id="abstract" name="abstract" value="<?php echo $model->abstract ?>" ><?php echo $model->abstract ?></textarea>
+                                <textarea rows="5" class="form-control" id="abstract" name="abstract"  ></textarea>
                             </div>
-                           
-                            <input type="hidden" name="id" value="<?php echo $model->id; ?>">
+
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="signed_user">Người ký</label>
-                                <input type="text" class="form-control" id="signed_user" value="<?php echo $model->signed_user ?>" >
+                                <input type="text" class="form-control" id="signed_user"  >
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="shortcut">Tóm tắt</label>
-                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut" value="<?php echo $model->shortcut ?>" ><?php echo $model->shortcut ?></textarea>
+                                <textarea rows="5" class="form-control" id="shortcut" name="shortcut"  ></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="country">Tên quốc gia</label>
-                                <input type="text" class="form-control" id="country" value="<?php echo $model->country ?>" >
+                                <input type="text" class="form-control" id="country" >
                             </div>
                             <div class="form-group">
                                 <label for="did_by">Người thực hiện</label>
-                                <input type="text" class="form-control" id="did_by" value="<?php echo $model->did_by ?>" >
+                                <input type="text" class="form-control" id="did_by" >
                             </div>
                             <div class="form-group">
                                 <label for="obj_name">Tên đối tượng</label>
-                                <input type="text" class="form-control" id="obj_name" value="<?php echo $model->obj_name ?>" >
+                                <input type="text" class="form-control" id="obj_name" >
                             </div>
-                           
-                            
+
+
                             <div class="form-group">
                                 <label for="status">Tình trạng</label>
-                                <select class="form-control" onchange="showOff()" id="change_status">
+                                <select class="form-control" onchange="showOff();" id="change_status">
                                     <option>Chọn trạng thái</option>
-                                    <option value="1" <?php if ($model->status == 1): ?> selected="selected" <?php endif; ?>>Đang thực hiện</option>
-                                    <option value="2" <?php if ($model->status == 2): ?> selected="selected" <?php endif; ?>>Đã thực hiện</option>
-                                    <option value="3" <?php if ($model->status == 3): ?> selected="selected" <?php endif; ?>>Đã chuyển</option>
+                                    <option value="1">Đang thực hiện</option>
+                                    <option value="2">Đã thực hiện</option>
+                                    <option value="3">Đã chuyển</option>
                                 </select>
 
                             </div>
                             <div class="form-group" id="receive_day">
                                 <label for="date_recieve">Ngày tiếp nhận xử lý</label>
-                                <input type="text" class="form-control" id="date_recieve" name="date_recieve" value="<?php echo date('m/d/Y', $model->date_recieve) ?>" >
+                                <input type="text" class="form-control" id="date_recieve" name="date_recieve"  >
                             </div>
                             <div class="form-group" id="doc_end">
                                 <label for="number_doc_finish">Công văn kết thúc số</label>
-                                <input type="text" class="form-control" id="number_doc_finish" name="number_doc_finish" value="<?php echo $model->number_doc_finish ?>" >
+                                <input type="text" class="form-control" id="number_doc_finish" name="number_doc_finish"  >
                             </div>
                             <div class="form-group" id="doc_send">
                                 <label for="number_doc_send">Số công văn chuyển</label>
-                                <input type="text" class="form-control" id="number_doc_send" name="number_doc_send" value="<?php echo $model->number_doc_send ?>" >
+                                <input type="text" class="form-control" id="number_doc_send" name="number_doc_send"  >
                             </div>
                             <div class="form-group" id="receive_place">
                                 <label for="reciever">Nơi tiếp nhận</label>
-                                <input type="text" class="form-control" id="reciever" name="reciever" value="<?php echo $model->reciever ?>" >
+                                <input type="text" class="form-control" id="reciever" name="reciever">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        <button type="submit" class="btn btn-primary">Thêm</button>
                     </div>
                 </form>
             </div><!-- /.box -->

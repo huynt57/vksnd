@@ -1,23 +1,23 @@
 <?php
 
-Yii::import('application.models._base.BaseDocumentary');
+Yii::import('application.models._base.BaseDocumentaryRecieve');
 
-class Documentary extends BaseDocumentary {
-
-    public static function model($className = __CLASS__) {
-        return parent::model($className);
-    }
-
-    public function getDocumentary() {
+class DocumentaryRecieve extends BaseDocumentaryRecieve
+{
+	public static function model($className=__CLASS__) {
+		return parent::model($className);
+	}
+        
+        public function getDocumentary() {
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
-        $count = Documentary::model()->count($criteria);
+        $count = DocumentaryRecieve::model()->count($criteria);
         $pages = new CPagination($count);
 
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
-        $models = Documentary::model()->findAll($criteria);
+        $models = DocumentaryRecieve::model()->findAll($criteria);
         return array(
             'models' => $models,
             'pages' => $pages
@@ -25,7 +25,7 @@ class Documentary extends BaseDocumentary {
     }
 
     public function edit($post) {
-        $doc = Documentary::model()->findByPk($post['id']);
+        $doc = DocumentaryRecieve::model()->findByPk($post['id']);
         if ($doc) {
             $doc->setAttributes($post);
             if (isset($post['time_in_doc'])) {
@@ -45,7 +45,7 @@ class Documentary extends BaseDocumentary {
     }
 
     public function add($post) {
-        $model = new Documentary;
+        $model = new DocumentaryRecieve;
         $model->setAttributes($post);
         if (isset($post['time_in_doc'])) {
             $model->time_in_doc = strtotime($post['time_in_doc']);
@@ -91,17 +91,16 @@ class Documentary extends BaseDocumentary {
             $criteria->addSearchCondition('signed_user', $keyword, true, "OR", "LIKE");
             $criteria->addSearchCondition('reciever', $keyword, true, "OR", "LIKE");
         }
-        $count = Documentary::model()->count($criteria);
+        $count = DocumentaryRecieve::model()->count($criteria);
         $pages = new CPagination($count);
 
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
-        $result = Documentary::model()->findAll($criteria);
+        $result = DocumentaryRecieve::model()->findAll($criteria);
         return array(
             'models' => $result,
             'pages' => $pages
         );
     }
-
 }

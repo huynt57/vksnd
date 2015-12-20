@@ -1,3 +1,4 @@
+
  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <div class="box-body">
     <?php if (Yii::app()->user->hasFlash('error')): ?>
@@ -15,6 +16,7 @@
         </div>
     <?php endif; ?>
 </div>
+
 <section class="content">
     <div class="row">
         <div class="col-md-12">
@@ -23,7 +25,7 @@
                     <h3 class="box-title">Tìm kiếm</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="GET" action="<?php echo Yii::app()->createUrl('search/searchResult') ?>">
+                <form role="form" method="GET" action="<?php echo Yii::app()->createUrl('search/resultDocumentary') ?>">
                     <div class="box-body">
                         <div class="col-md-12">
                             <div class="form-group">

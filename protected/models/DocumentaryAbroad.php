@@ -1,23 +1,23 @@
 <?php
 
-Yii::import('application.models._base.BaseDocumentary');
+Yii::import('application.models._base.BaseDocumentaryAbroad');
 
-class Documentary extends BaseDocumentary {
+class DocumentaryAbroad extends BaseDocumentaryAbroad {
 
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-
+    
     public function getDocumentary() {
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
-        $count = Documentary::model()->count($criteria);
+        $count = DocumentaryAbroad::model()->count($criteria);
         $pages = new CPagination($count);
 
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
-        $models = Documentary::model()->findAll($criteria);
+        $models = DocumentaryAbroad::model()->findAll($criteria);
         return array(
             'models' => $models,
             'pages' => $pages
@@ -25,7 +25,7 @@ class Documentary extends BaseDocumentary {
     }
 
     public function edit($post) {
-        $doc = Documentary::model()->findByPk($post['id']);
+        $doc = DocumentaryAbroad::model()->findByPk($post['id']);
         if ($doc) {
             $doc->setAttributes($post);
             if (isset($post['time_in_doc'])) {
@@ -45,7 +45,7 @@ class Documentary extends BaseDocumentary {
     }
 
     public function add($post) {
-        $model = new Documentary;
+        $model = new DocumentaryAbroad;
         $model->setAttributes($post);
         if (isset($post['time_in_doc'])) {
             $model->time_in_doc = strtotime($post['time_in_doc']);
@@ -91,13 +91,13 @@ class Documentary extends BaseDocumentary {
             $criteria->addSearchCondition('signed_user', $keyword, true, "OR", "LIKE");
             $criteria->addSearchCondition('reciever', $keyword, true, "OR", "LIKE");
         }
-        $count = Documentary::model()->count($criteria);
+        $count = DocumentaryAbroad::model()->count($criteria);
         $pages = new CPagination($count);
 
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
-        $result = Documentary::model()->findAll($criteria);
+        $result = DocumentaryAbroad::model()->findAll($criteria);
         return array(
             'models' => $result,
             'pages' => $pages

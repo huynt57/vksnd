@@ -35,17 +35,17 @@
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('documentaryRecieve/index') ?>">
                     <span>Yêu cầu tương trợ tư pháp <br>hình sự đến</span>
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('opinion/index') ?>">
                     <span>Tham gia ý kiến</span>
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('documentaryAbroad/index') ?>">
                     <span>Văn bản có yếu tố nước ngoài</span>
                 </a>
             </li>
@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('guide/index') ?>">
                     <span>Thẩm định, hướng dẫn</span>
                 </a>
             </li>
@@ -70,25 +70,25 @@
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('casesAbroadOther/index') ?>">
                     <span>Vụ việc có yếu tố nước ngoài khác</span>
                 </a>
             </li>
             <li class="active">
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createUrl('document/index') ?>">
                     <span>Thư viện</span>
                 </a>
             </li>
-            <li class="active">
-                <a href=" #">
-                    <span>Tìm kiếm</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href=" #">
-                    <span>Thống kê</span>
-                </a>
-            </li>
+            <!--            <li class="active">
+                            <a href=" #">
+                                <span>Tìm kiếm</span>
+                            </a>
+                        </li>-->
+            <!--            <li class="active">
+                            <a href=" #">
+                                <span>Thống kê</span>
+                            </a>
+                        </li>-->
             <li class="active">
                 <a href=" #">
                     <span>Backup</span>
