@@ -2,13 +2,13 @@
 
 Yii::import('application.models._base.BaseDocumentaryRecieve');
 
-class DocumentaryRecieve extends BaseDocumentaryRecieve
-{
-	public static function model($className=__CLASS__) {
-		return parent::model($className);
-	}
-        
-        public function getDocumentary() {
+class DocumentaryRecieve extends BaseDocumentaryRecieve {
+
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
+
+    public function getDocumentary() {
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
         $count = DocumentaryRecieve::model()->count($criteria);
@@ -59,7 +59,7 @@ class DocumentaryRecieve extends BaseDocumentaryRecieve
         return FALSE;
     }
 
-    public function searchByCondition($attr) {
+    public function searchByCondition($attr, $cnt = null) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
 //            $date_start = strtotime($attr['date_start']);
@@ -93,7 +93,9 @@ class DocumentaryRecieve extends BaseDocumentaryRecieve
         }
         $count = DocumentaryRecieve::model()->count($criteria);
         $pages = new CPagination($count);
-
+        if (!empty($cnt)) {
+            return $count;
+        }
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);
@@ -103,4 +105,5 @@ class DocumentaryRecieve extends BaseDocumentaryRecieve
             'pages' => $pages
         );
     }
+
 }

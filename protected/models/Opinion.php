@@ -2,13 +2,13 @@
 
 Yii::import('application.models._base.BaseOpinion');
 
-class Opinion extends BaseOpinion
-{
-	public static function model($className=__CLASS__) {
-		return parent::model($className);
-	}
-        
-        public function getDocumentary() {
+class Opinion extends BaseOpinion {
+
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
+
+    public function getDocumentary() {
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
         $count = Opinion::model()->count($criteria);
@@ -59,7 +59,7 @@ class Opinion extends BaseOpinion
         return FALSE;
     }
 
-    public function searchByCondition($attr) {
+    public function searchByCondition($attr, $cnt = null) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
 //            $date_start = strtotime($attr['date_start']);
@@ -92,6 +92,9 @@ class Opinion extends BaseOpinion
             $criteria->addSearchCondition('reciever', $keyword, true, "OR", "LIKE");
         }
         $count = Opinion::model()->count($criteria);
+        if (!empty($cnt)) {
+            return $count;
+        }
         $pages = new CPagination($count);
 
         // results per page
@@ -103,4 +106,5 @@ class Opinion extends BaseOpinion
             'pages' => $pages
         );
     }
+
 }

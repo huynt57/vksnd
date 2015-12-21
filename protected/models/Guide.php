@@ -59,7 +59,7 @@ class Guide extends BaseGuide {
         return FALSE;
     }
 
-    public function searchByCondition($attr) {
+    public function searchByCondition($attr, $cnt = NULL) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
 //            $date_start = strtotime($attr['date_start']);
@@ -93,7 +93,9 @@ class Guide extends BaseGuide {
         }
         $count = Guide::model()->count($criteria);
         $pages = new CPagination($count);
-
+        if (!empty($cnt)) {
+            return $count;
+        }
         // results per page
         $pages->pageSize = Yii::app()->params['limit'];
         $pages->applyLimit($criteria);

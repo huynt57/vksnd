@@ -59,7 +59,7 @@ class Letters extends BaseLetters {
         return FALSE;
     }
 
-    public function searchByCondition($attr) {
+    public function searchByCondition($attr, $cnt = null) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
             $date_start = strtotime($attr['date_start']);
@@ -80,6 +80,9 @@ class Letters extends BaseLetters {
             $criteria->addSearchCondition('letter_created', $keyword, true, "OR", "LIKE");
         }
         $count = Letters::model()->count($criteria);
+        if (!empty($cnt)) {
+            return $count;
+        }
         $pages = new CPagination($count);
 
         // results per page

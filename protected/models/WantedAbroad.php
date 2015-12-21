@@ -53,7 +53,7 @@ class WantedAbroad extends BaseWantedAbroad {
         return FALSE;
     }
 
-    public function searchByCondition($attr) {
+    public function searchByCondition($attr, $cnt = null) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
             $date_start = strtotime($attr['date_start']);
@@ -81,6 +81,9 @@ class WantedAbroad extends BaseWantedAbroad {
             $criteria->addSearchCondition('staff_assigned', $keyword, true, "OR", "LIKE");
         }
         $count = WantedAbroad::model()->count($criteria);
+        if (!empty($cnt)) {
+            return $count;
+        }
         $pages = new CPagination($count);
 
         // results per page
