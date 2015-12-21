@@ -24,72 +24,72 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">Điều hướng chính</li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('search/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('search/index') ?>">
                     <span>Tìm kiếm</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('documentary/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('documentary/index') ?>">
                     <span>Yêu cầu tương trợ tư pháp <br>hình sự đi</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('documentaryRecieve/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('documentaryRecieve/index') ?>">
                     <span>Yêu cầu tương trợ tư pháp <br>hình sự đến</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('opinion/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('opinion/index') ?>">
                     <span>Tham gia ý kiến</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('documentaryAbroad/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('documentaryAbroad/index') ?>">
                     <span>Văn bản có yếu tố nước ngoài</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('case/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('case/index') ?>">
                     <span>Vụ án</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('letter/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('letter/index') ?>">
                     <span>Đơn thư</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('guide/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('guide/index') ?>">
                     <span>Thẩm định, hướng dẫn</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('wantedAbroad/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('wantedAbroad/index') ?>">
                     <span>Truy nã nước ngoài</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('casesAbroadOther/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('casesAbroadOther/index') ?>">
                     <span>Vụ việc có yếu tố nước ngoài khác</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="<?php echo Yii::app()->createUrl('document/index') ?>">
+            <li>
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('document/index') ?>">
                     <span>Thư viện</span>
                 </a>
             </li>
-            <!--            <li class="active">
+            <!--            <li>
                             <a href=" #">
                                 <span>Tìm kiếm</span>
                             </a>
                         </li>-->
-            <!--            <li class="active">
+            <!--            <li>
                             <a href=" #">
                                 <span>Thống kê</span>
                             </a>
                         </li>-->
-            <li class="active">
+            <li>
                 <a href=" #">
                     <span>Backup</span>
                 </a>
@@ -98,3 +98,10 @@
     </section>
     <!-- /.sidebar -->
 </aside>
+
+<script>
+    $(document).ready(function () {
+        var url = window.location.href;
+        $('a[href="' + url + '"]').parent().addClass('active');
+    });
+</script>
