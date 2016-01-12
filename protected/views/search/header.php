@@ -16,5 +16,7 @@
         <p>Số kết quả vụ việc có yếu tố nước ngoài khác: <?php echo Yii::app()->session['casesAbroadOther_cnt']?> </p>
     </div>
 </div>
+<a class="btn btn-xs btn-primary" style="margin-bottom: 10px" href="<?php echo Yii::app()->createUrl('search/printArea', $_GET)?>">In kết quả</a>
+
 
 

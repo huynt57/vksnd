@@ -334,5 +334,7 @@
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/js/pages/dashboard.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/js/demo.js"></script>
+        
+        <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/printThis.js"></script>
     </body>
 </html>

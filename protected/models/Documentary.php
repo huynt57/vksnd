@@ -59,7 +59,7 @@ class Documentary extends BaseDocumentary {
         return FALSE;
     }
 
-    public function searchByCondition($attr, $cnt = NULL) {
+    public function searchByCondition($attr, $cnt = NULL, $pagination = 1) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
 //            $date_start = strtotime($attr['date_start']);
@@ -94,6 +94,10 @@ class Documentary extends BaseDocumentary {
         $count = Documentary::model()->count($criteria);
         if (!empty($cnt)) {
             return $count;
+        }
+        if ($pagination != 1) {
+            $result = Documentary::model()->findAll($criteria);
+            return $result;
         }
         $pages = new CPagination($count);
 

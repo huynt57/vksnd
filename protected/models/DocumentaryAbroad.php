@@ -7,7 +7,7 @@ class DocumentaryAbroad extends BaseDocumentaryAbroad {
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
-    
+
     public function getDocumentary() {
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
@@ -59,7 +59,7 @@ class DocumentaryAbroad extends BaseDocumentaryAbroad {
         return FALSE;
     }
 
-    public function searchByCondition($attr, $cnt = null) {
+    public function searchByCondition($attr, $cnt = null, $pagination = 1) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
 //            $date_start = strtotime($attr['date_start']);
@@ -94,6 +94,10 @@ class DocumentaryAbroad extends BaseDocumentaryAbroad {
         $count = DocumentaryAbroad::model()->count($criteria);
         if (!empty($cnt)) {
             return $count;
+        }
+        if ($pagination != 1) {
+            $result = DocumentaryAbroad::model()->findAll($criteria);
+            return $result;
         }
         $pages = new CPagination($count);
 

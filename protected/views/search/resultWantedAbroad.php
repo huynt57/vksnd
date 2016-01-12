@@ -1,25 +1,25 @@
 <section class="content">
     <h2 class="page-header">Kết quả tìm kiếm</h2>
-<?php $this->renderPartial('header')?>
+    <?php $this->renderPartial('header') ?>
     <div class="row">
         <div class="col-md-12">
             <!-- Custom Tabs -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentary', $_GET) ?>">Yêu cầu tương trợ <br>tư pháp<br> hình sự đi <?php echo '('. Yii::app()->session['documentary_cnt'] . ')'?></a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentaryRecieve', $_GET) ?>"  >Yêu cầu tương trợ <br>tư pháp<br> hình sự đến <?php echo '('. Yii::app()->session['documentaryRecieve_cnt'] . ')'?></a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultOpinion', $_GET) ?>"  >Tham gia <br>ý kiến  <?php echo '('. Yii::app()->session['opinion_cnt'] . ')'?> </a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentaryAbroad', $_GET) ?>"  >Văn bản có <br>yếu tố <br> nước ngoài <?php echo '('. Yii::app()->session['documentaryAbroad_cnt'] . ')'?></a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultCase', $_GET) ?>">Vụ án <?php echo '('. Yii::app()->session['case_cnt'] . ')'?></a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultLetter', $_GET) ?>">Đơn thư <?php echo '('. Yii::app()->session['letter_cnt'] . ')'?></a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultGuide', $_GET) ?>"  >Thẩm định,<br> hướng dẫn <?php echo '('. Yii::app()->session['guide_cnt'] . ')'?></a></li>
-                    <li class="active"><a href="<?php echo Yii::app()->createUrl('search/resultWantedAbroad', $_GET) ?>">Truy nã <br>nước ngoài <?php echo '('. Yii::app()->session['wantedAbroad_cnt'] . ')'?></a></li>
-                    <li><a href="<?php echo Yii::app()->createUrl('search/resultCasesAbroadOther', $_GET) ?>"  >Vụ việc <br>có yếu tố <br>  nước ngoài khác <?php echo '('. Yii::app()->session['casesAbroadOther_cnt'] . ')'?></a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentary', $_GET) ?>">Yêu cầu tương trợ <br>tư pháp<br> hình sự đi <?php echo '(' . Yii::app()->session['documentary_cnt'] . ')' ?></a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentaryRecieve', $_GET) ?>"  >Yêu cầu tương trợ <br>tư pháp<br> hình sự đến <?php echo '(' . Yii::app()->session['documentaryRecieve_cnt'] . ')' ?></a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultOpinion', $_GET) ?>"  >Tham gia <br>ý kiến  <?php echo '(' . Yii::app()->session['opinion_cnt'] . ')' ?> </a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultDocumentaryAbroad', $_GET) ?>"  >Văn bản có <br>yếu tố <br> nước ngoài <?php echo '(' . Yii::app()->session['documentaryAbroad_cnt'] . ')' ?></a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultCase', $_GET) ?>">Vụ án <?php echo '(' . Yii::app()->session['case_cnt'] . ')' ?></a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultLetter', $_GET) ?>">Đơn thư <?php echo '(' . Yii::app()->session['letter_cnt'] . ')' ?></a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultGuide', $_GET) ?>"  >Thẩm định,<br> hướng dẫn <?php echo '(' . Yii::app()->session['guide_cnt'] . ')' ?></a></li>
+                    <li class="active"><a href="<?php echo Yii::app()->createUrl('search/resultWantedAbroad', $_GET) ?>">Truy nã <br>nước ngoài <?php echo '(' . Yii::app()->session['wantedAbroad_cnt'] . ')' ?></a></li>
+                    <li><a href="<?php echo Yii::app()->createUrl('search/resultCasesAbroadOther', $_GET) ?>"  >Vụ việc <br>có yếu tố <br>  nước ngoài khác <?php echo '(' . Yii::app()->session['casesAbroadOther_cnt'] . ')' ?></a></li>
 
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="result">
                             <tr>
                                 <th>Mã số</th>
                                 <th>Nước yêu cầu</th>
@@ -41,8 +41,8 @@
                                     <td>                                
                                         <a href="<?php echo Yii::app()->createUrl('wantedAbroad/edit', array('id' => $item->id)) ?>"><span class="label label-primary">Sửa</span></a>
                                         <a href="<?php echo Yii::app()->createUrl('wantedAbroad/delete', array('id' => $item->id)) ?>" onclick="if (!confirm('Bạn có chắc chắn xóa không ?, Hành động này không thể khôi phục')) {
-                                                        return false;
-                                                    }"><span class="label label-danger">Xóa</span></a>
+                                                    return false;
+                                                }"><span class="label label-danger">Xóa</span></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -102,3 +102,21 @@
     <!-- /.row -->
     <!-- END CUSTOM TABS -->
 </section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#print_table').on('click', function () {
+            var print = $('#result');
+            print.printThis({
+                debug: false,
+                importCSS: true,
+                printContainer: true,
+                loadCSS: "",
+                pageTitle: "",
+                removeInline: false,
+                printDelay: 433,
+                header: "Kết quả tìm kiếm"
+            });
+        });
+    });
+</script>

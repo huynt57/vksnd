@@ -53,7 +53,7 @@ class Cases extends BaseCases {
         return FALSE;
     }
 
-    public function searchByCondition($attr, $cnt = null) {
+    public function searchByCondition($attr, $cnt = null, $pagination = 1) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
             $date_start = strtotime($attr['date_start']);
@@ -79,6 +79,10 @@ class Cases extends BaseCases {
         $count = Cases::model()->count($criteria);
         if (!empty($cnt)) {
             return $count;
+        }
+        if ($pagination != 1) {
+            $result = Cases::model()->findAll($criteria);
+            return $result;
         }
         $pages = new CPagination($count);
 
