@@ -24,10 +24,12 @@ class Document extends BaseDocument {
         );
     }
 
-    public function edit($post) {
+    public function edit($post, $path) {
         $doc = Document::model()->findByPk($post['id']);
         if ($doc) {
             $doc->setAttributes($post);
+            $doc->path = $path;
+            $doc->updated_at = time();
             if ($doc->save(FALSE)) {
                 return 1;
             } else {
@@ -38,13 +40,45 @@ class Document extends BaseDocument {
         }
     }
 
-    public function add($post) {
+    public function add($post, $path) {
         $model = new Document;
         $model->setAttributes($post);
+        $model->path = $path;
+        $model->created_at = time();
+        $model->updated_at = time();
         if ($model->save(FALSE)) {
             return TRUE;
         }
         return FALSE;
+    }
+
+    public function searchByCondition($txt, $cnt = NULL, $pagination = 1) {
+        $criteria = new CDbCriteria;
+
+        if (!empty($txt)) {
+            
+            $criteria->addSearchCondition('t.name', $txt, true, 'OR', 'LIKE');
+            $criteria->addSearchCondition('t.description', $txt, true, 'OR', 'LIKE');
+        }
+
+        $count = Document::model()->count($criteria);
+        if (!empty($cnt)) {
+            return $count;
+        }
+        if ($pagination != 1) {
+            $result = Document::model()->findAll($criteria);
+            return $result;
+        }
+        $pages = new CPagination($count);
+
+        // results per page
+        $pages->pageSize = Yii::app()->params['limit'];
+        $pages->applyLimit($criteria);
+        $result = Document::model()->findAll($criteria);
+        return array(
+            'models' => $result,
+            'pages' => $pages
+        );
     }
 
 }

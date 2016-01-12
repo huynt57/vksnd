@@ -19,7 +19,8 @@ class DocumentController extends Controller {
     public function actionAddProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Document::model()->add($_POST);
+            $path = UploadHelper::getUrlUploadSingleImage($_FILES['file'], 'file');
+            $result = Document::model()->add($_POST, $path);
             if ($result) {
                 Yii::app()->user->setFlash('success', 'Thêm dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('document/add'));
@@ -56,6 +57,7 @@ class DocumentController extends Controller {
     public function actionEdit() {
         try {
             $id = StringHelper::filterString(Yii::app()->request->getQuery('id'));
+
             $result = Document::model()->findByPk($id);
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
@@ -66,7 +68,8 @@ class DocumentController extends Controller {
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $result = Document::model()->edit($_POST);
+            $path = UploadHelper::getUrlUploadSingleImage($_FILES['file'], 'file');
+            $result = Document::model()->edit($_POST, $path);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');
                 $this->redirect(Yii::app()->createUrl('document/edit', array('id' => $post['id'])));
@@ -80,6 +83,17 @@ class DocumentController extends Controller {
         } catch (Exception $ex) {
             var_dump($ex->getMessage());
         }
+    }
+
+    public function actionSearchByCondition() {
+        try {
+            $txt = StringHelper::filterString(Yii::app()->request->getQuery('txt'));
+
+            $result = Document::model()->searchByCondition($txt);
+        } catch (Exception $ex) {
+            var_dump($ex->getMessage());
+        }
+        $this->render('result', $result);
     }
 
     // Uncomment the following methods and override them if needed

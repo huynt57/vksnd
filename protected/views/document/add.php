@@ -19,7 +19,7 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Cập nhật tài liệu</h3>
+                    <h3 class="box-title">Thêm tài liệu</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('document/addprocess') ?>"  enctype="multipart/form-data">
@@ -31,12 +31,12 @@
                                 <input type="text" class="form-control" id="name" name="name">
                             </div>
                             <div class="form-group">
-                                <label for="path">Đường dẫn</label>
-                                <input type="text" class="form-control" id="path" name="path">
+                                <label for="description">Miêu tả</label>
+                                <input type="text" class="form-control" id="description" name="description">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Chọn file</label>
-                                <input type="file" id="exampleInputFile" name="document" onchange="lalala(this.value);">
+                                <input type="file" id="exampleInputFile" name="file">
 
                             </div>
 
@@ -51,8 +51,4 @@
         </div>
     </div>
 </section>
-<script>
-function lalala(str){
-    alert(str);
-}
-</script>
+

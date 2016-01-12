@@ -31,13 +31,13 @@
                                 <input type="text" class="form-control" id="name" name="name" value="<?php echo $model->name ?>">
                             </div>
                             <div class="form-group">
-                                <label for="path">Đường dẫn</label>
-                                <input type="text" class="form-control" id="path" name="path" value="<?php echo $model->path ?>" >
+                                <label for="description">Miêu tả</label>
+                                <input type="text" class="form-control" id="description" name="description" value="<?php echo $model->description ?>" >
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Chọn file</label>
-                                <input type="file" id="exampleInputFile" name="document">
-                           
+                                <input type="file" id="exampleInputFile" name="file">
+
                             </div>
 
                             <input type="hidden" name="id" value="<?php echo $model->id; ?>">
