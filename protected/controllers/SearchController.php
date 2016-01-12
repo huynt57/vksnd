@@ -93,15 +93,18 @@ class SearchController extends Controller {
     }
 
     public function actionPrintArea() {
-        $docmentary = Documentary::model()->searchByCondition($_GET, null, 2);
+        $documentary = Documentary::model()->searchByCondition($_GET, null, 2);
         $wanted_abroad = WantedAbroad::model()->searchByCondition($_GET, null, 2);
         $letters = Letters::model()->searchByCondition($_GET, null, 2);
         $cases = Cases::model()->searchByCondition($_GET, null, 2);
         $cases_abroad = CasesAbroadOther::model()->searchByCondition($_GET, null, 2);
         $opinion = Opinion::model()->searchByCondition($_GET, null, 2);
         $documentary_recieve = DocumentaryRecieve::model()->searchByCondition($_GET, null, 2);
-        $result = array('documentary' => $docmentary, 'wanted_abroad' => $wanted_abroad, 'letters' => $letters, 'cases' => $cases,
-            'cases_abroad' => $cases_abroad, 'opinion' => $opinion, 'documentary_recieve' => $documentary_recieve);
+        $documentary_abroad = DocumentaryAbroad::model()->searchByCondition($_GET, null, 2);
+        $guide = Guide::model()->searchByCondition($_GET, null, 2);
+        $result = array('documentary' => $documentary, 'wanted_abroad' => $wanted_abroad, 'letters' => $letters, 'cases' => $cases,
+            'cases_abroad' => $cases_abroad, 'opinion' => $opinion, 'documentary_recieve' => $documentary_recieve
+            , 'documentary_abroad' => $documentary_abroad, 'guide' => $guide);
         $this->render('printArea', $result);
     }
 

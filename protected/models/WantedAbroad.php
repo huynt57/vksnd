@@ -53,7 +53,7 @@ class WantedAbroad extends BaseWantedAbroad {
         return FALSE;
     }
 
-    public function searchByCondition($attr, $cnt = null, $pagination) {
+    public function searchByCondition($attr, $cnt = null, $pagination=1) {
         $criteria = new CDbCriteria;
         if (!empty($attr['date_start']) && !empty($attr['date_end'])) {
             $date_start = strtotime($attr['date_start']);

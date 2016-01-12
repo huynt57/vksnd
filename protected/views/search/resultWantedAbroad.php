@@ -103,20 +103,4 @@
     <!-- END CUSTOM TABS -->
 </section>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#print_table').on('click', function () {
-            var print = $('#result');
-            print.printThis({
-                debug: false,
-                importCSS: true,
-                printContainer: true,
-                loadCSS: "",
-                pageTitle: "",
-                removeInline: false,
-                printDelay: 433,
-                header: "Kết quả tìm kiếm"
-            });
-        });
-    });
-</script>
+
