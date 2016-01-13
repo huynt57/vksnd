@@ -13,8 +13,8 @@ class UploadHelper {
         $name = StringHelper::filterString($obj['name']);
         $name = StringHelper::unicode_str_filter($name);
        // $name = StringHelper::makeUrlString($name);
-        $storeFolder = Yii::getPathOfAlias('webroot') . '/images/' . date('Y-m-d', time()) . '/' . $user_id . '/';
-        $pathUrl = 'images/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
+        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/';
+        $pathUrl = 'uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
         if (!file_exists($storeFolder)) {
             mkdir($storeFolder, 0777, true);
         }
@@ -37,8 +37,8 @@ class UploadHelper {
         foreach ($obj["tmp_name"] as $key => $tmp_name) {
             $ext_arr = array('png', 'jpg', 'jpeg', 'bmp', 'pdf', 'txt', 'doc', 'docx', 'xls', 'xlsx');
             $name = StringHelper::filterString($obj['name'][$key]);
-            $storeFolder = Yii::getPathOfAlias('webroot') . '/images/' . date('Y-m-d', time()) . '/' . $user_id . '/';
-            $pathUrl = 'images/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
+            $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/';
+            $pathUrl = 'uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
             if (!file_exists($storeFolder)) {
                 mkdir($storeFolder, 0777, true);
             }
