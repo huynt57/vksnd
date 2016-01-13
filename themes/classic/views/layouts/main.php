@@ -113,10 +113,8 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
-                        Quản trị
-                        <small>Quản lý hệ thống</small>
-                    </h1>
+                    <h3>
+                        Văn phòng cơ quan cảnh sát điều tra bộ công an.<br>Hệ thống quản lý tương trợ tư pháp hình sự và hợp tác quốc tế trong tố tụng hình sự.</h3>
                     <!--                    <ol class="breadcrumb">
                                             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                                             <li class="active">Dashboard</li>
