@@ -2,6 +2,15 @@
 
 class SearchController extends Controller {
 
+    protected function beforeAction($action) {
+        if ($action !== 'login') {
+            if (empty(Yii::app()->session['logged'])) {
+                $this->redirect(Yii::app()->createUrl('user/login'));
+            }
+        }
+        return true;
+    }
+
     public function actionIndex() {
         $this->render('index');
     }

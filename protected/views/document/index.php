@@ -44,7 +44,7 @@
                             <th>Mã số</th>
                             <th>Tên</th>
                             <th>Miêu tả</th>
-
+                            <th>Xem file</th>
                             <th>Hành động</th>
                         </tr>
                         <?php foreach ($models as $item): ?>
@@ -54,7 +54,9 @@
                                 <td>
                                     <?php echo $item->description; ?>
                                 </td>
-
+                                <td>
+                                    <a href="<?php echo Yii::app()->request->getBaseUrl(true) . '/' . $item->path?>" target="_blank" >Xem file</a>
+                                </td>
                                 <td>                                
                                     <a href="<?php echo Yii::app()->createUrl('document/edit', array('id' => $item->id)) ?>"><span class="label label-primary">Sửa</span></a>
                                     <a href="<?php echo Yii::app()->createUrl('document/delete', array('id' => $item->id)) ?>" onclick="if (!confirm('Bạn có chắc chắn xóa không ?, Hành động này không thể khôi phục')) {

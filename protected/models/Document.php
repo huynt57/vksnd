@@ -26,9 +26,12 @@ class Document extends BaseDocument {
 
     public function edit($post, $path) {
         $doc = Document::model()->findByPk($post['id']);
+       
         if ($doc) {
             $doc->setAttributes($post);
-            $doc->path = $path;
+            if (!empty($path)) {
+                $doc->path = $path;
+            }
             $doc->updated_at = time();
             if ($doc->save(FALSE)) {
                 return 1;
@@ -43,7 +46,9 @@ class Document extends BaseDocument {
     public function add($post, $path) {
         $model = new Document;
         $model->setAttributes($post);
-        $model->path = $path;
+        if (!empty($path)) {
+            $model->path = $path;
+        }
         $model->created_at = time();
         $model->updated_at = time();
         if ($model->save(FALSE)) {
@@ -56,7 +61,7 @@ class Document extends BaseDocument {
         $criteria = new CDbCriteria;
 
         if (!empty($txt)) {
-            
+
             $criteria->addSearchCondition('t.name', $txt, true, 'OR', 'LIKE');
             $criteria->addSearchCondition('t.description', $txt, true, 'OR', 'LIKE');
         }

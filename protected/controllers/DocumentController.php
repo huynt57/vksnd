@@ -68,7 +68,11 @@ class DocumentController extends Controller {
     public function actionEditProcess() {
         try {
             $post = StringHelper::filterArrayString($_POST);
-            $path = UploadHelper::getUrlUploadSingleImage($_FILES['file'], 'file');
+            $path = null;
+            if (isset($_FILES['file'])) {
+                $path = UploadHelper::getUrlUploadSingleImage($_FILES['file'], 'file');
+            }
+            
             $result = Document::model()->edit($_POST, $path);
             if ($result == 1) {
                 Yii::app()->user->setFlash('success', 'Cập nhật dữ liệu thành công !');

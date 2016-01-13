@@ -11,6 +11,8 @@ class UploadHelper {
     public static function getUrlUploadSingleImage($obj, $user_id) {
         $ext_arr = array('png', 'jpg', 'jpeg', 'bmp', 'pdf', 'txt', 'doc', 'docx', 'xls', 'xlsx');
         $name = StringHelper::filterString($obj['name']);
+        $name = StringHelper::unicode_str_filter($name);
+       // $name = StringHelper::makeUrlString($name);
         $storeFolder = Yii::getPathOfAlias('webroot') . '/images/' . date('Y-m-d', time()) . '/' . $user_id . '/';
         $pathUrl = 'images/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
         if (!file_exists($storeFolder)) {

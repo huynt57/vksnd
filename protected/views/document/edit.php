@@ -22,7 +22,7 @@
                     <h3 class="box-title">Cập nhật tài liệu</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('document/editprocess') ?>" >
+                <form role="form" method="POST" action="<?php echo Yii::app()->createUrl('document/editprocess') ?>"  enctype="multipart/form-data" >
 
                     <div class="box-body">
                         <div class="col-md-12">
