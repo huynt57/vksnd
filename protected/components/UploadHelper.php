@@ -11,10 +11,12 @@ class UploadHelper {
     public static function getUrlUploadSingleImage($obj, $user_id) {
         $ext_arr = array('png', 'jpg', 'jpeg', 'bmp', 'pdf', 'txt', 'doc', 'docx', 'xls', 'xlsx');
         $name = StringHelper::filterString($obj['name']);
+        //$name = StringHelper::unicode_str_filter($name);
+        // $name = StringHelper::makeUrlString($name);
+        $original_name = $name;
         $name = StringHelper::unicode_str_filter($name);
-       // $name = StringHelper::makeUrlString($name);
-        $storeFolder = Yii::getPathOfAlias('webroot') . '/images/' . date('Y-m-d', time()) . '/' . $user_id . '/';
-        $pathUrl = 'images/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
+        $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/';
+        $pathUrl = 'uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
         if (!file_exists($storeFolder)) {
             mkdir($storeFolder, 0777, true);
         }
@@ -23,7 +25,7 @@ class UploadHelper {
         $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
         if (in_array($ext, $ext_arr)) {
             if (move_uploaded_file($tempFile, $targetFile)) {
-                return $pathUrl;
+                return array('path' => $pathUrl, 'name' => $original_name);
             } else {
                 return NULL;
             }
@@ -37,8 +39,8 @@ class UploadHelper {
         foreach ($obj["tmp_name"] as $key => $tmp_name) {
             $ext_arr = array('png', 'jpg', 'jpeg', 'bmp', 'pdf', 'txt', 'doc', 'docx', 'xls', 'xlsx');
             $name = StringHelper::filterString($obj['name'][$key]);
-            $storeFolder = Yii::getPathOfAlias('webroot') . '/images/' . date('Y-m-d', time()) . '/' . $user_id . '/';
-            $pathUrl = 'images/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
+            $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/';
+            $pathUrl = 'uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
             if (!file_exists($storeFolder)) {
                 mkdir($storeFolder, 0777, true);
             }

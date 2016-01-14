@@ -26,12 +26,17 @@ class Document extends BaseDocument {
 
     public function edit($post, $path) {
         $doc = Document::model()->findByPk($post['id']);
-       
+
         if ($doc) {
             $doc->setAttributes($post);
             if (!empty($path)) {
-                $doc->path = $path;
+                if (empty($post['name'])) {
+                    
+                    $doc->name = $path['name'];
+                }
+                $doc->path = $path['path'];
             }
+
             $doc->updated_at = time();
             if ($doc->save(FALSE)) {
                 return 1;
@@ -47,7 +52,11 @@ class Document extends BaseDocument {
         $model = new Document;
         $model->setAttributes($post);
         if (!empty($path)) {
-            $model->path = $path;
+            if (empty($post['name'])) {
+                
+                $model->name = $path['name'];
+            }
+            $model->path = $path['path'];
         }
         $model->created_at = time();
         $model->updated_at = time();
