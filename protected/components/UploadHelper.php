@@ -15,6 +15,10 @@ class UploadHelper {
         // $name = StringHelper::makeUrlString($name);
         $original_name = $name;
         $name = StringHelper::unicode_str_filter($name);
+<<<<<<< HEAD
+=======
+       // $name = StringHelper::makeUrlString($name);
+>>>>>>> 0c4f56126d08f0b23caea88fc54dfb73b1af9a46
         $storeFolder = Yii::getPathOfAlias('webroot') . '/uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/';
         $pathUrl = 'uploads/' . date('Y-m-d', time()) . '/' . $user_id . '/' . time() . $name;
         if (!file_exists($storeFolder)) {

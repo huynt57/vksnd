@@ -4,7 +4,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>Quản trị viên</p>
@@ -90,7 +90,7 @@
                             </a>
                         </li>-->
             <li>
-                <a href=" #">
+                <a href="<?php echo Yii::app()->createAbsoluteUrl('backup/run') ?>">
                     <span>Backup</span>
                 </a>
             </li>

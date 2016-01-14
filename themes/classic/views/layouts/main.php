@@ -5,6 +5,23 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>VKSND | Trang quản trị</title>
+        <link rel="apple-touch-icon" sizes="57x57" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/favicon-16x16.png">
+        <link rel="manifest" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.5 -->
@@ -63,13 +80,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.png" class="user-image" alt="User Image">
                                     <span class="hidden-xs">Quản trị viên</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/img/logo.png" class="img-circle" alt="User Image">
                                         <p>
                                             Admin - Quản trị viên
                                             <small>Thành viên từ 2015</small>
@@ -93,7 +110,7 @@
                                             <a href="#" class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="<?php echo Yii::app()->createUrl('user/logout')?>" class="btn btn-default btn-flat">Đăng xuất</a>
+                                            <a href="<?php echo Yii::app()->createUrl('user/logout') ?>" class="btn btn-default btn-flat">Đăng xuất</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -332,7 +349,7 @@
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/js/pages/dashboard.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/dist/js/demo.js"></script>
-        
+
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/printThis.js"></script>
     </body>
 </html>
