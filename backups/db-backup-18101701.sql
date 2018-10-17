@@ -44,8 +44,11 @@ CREATE TABLE `tbl_document` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` text,
   `path` text,
+  `description` text NOT NULL,
+  `created_at` date NOT NULL,
+  `updated_at` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 
 
