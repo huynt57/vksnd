@@ -21,7 +21,7 @@
                 </div>
                 <div class="box-header with-border">
                     <h3 class="box-title">Danh sách công văn</h3>
-                    <a class="btn btn-primary" style="float: right" href="<?php echo Yii::app()->createUrl('documentary/add') ?>">Thêm</a>
+                    <a class="btn btn-primary" style="float: right" href="<?php echo Yii::app()->createUrl('opinion/add') ?>">Thêm</a>
                 </div><!-- /.box-header -->
 
                 <div class="box-body">
@@ -49,8 +49,8 @@
                                     <span class="label label-<?php echo $status['lable'] ?>"><?php echo $status['status'] ?></span>
                                 </td>
                                 <td>                                
-                                    <a href="<?php echo Yii::app()->createUrl('documentary/edit', array('id' => $item->id)) ?>"><span class="label label-primary">Sửa</span></a>
-                                    <a href="<?php echo Yii::app()->createUrl('documentary/delete', array('id' => $item->id)) ?>" onclick="if (!confirm('Bạn có chắc chắn xóa không ?, Hành động này không thể khôi phục')) {
+                                    <a href="<?php echo Yii::app()->createUrl('opinion/edit', array('id' => $item->id)) ?>"><span class="label label-primary">Sửa</span></a>
+                                    <a href="<?php echo Yii::app()->createUrl('opinion/delete', array('id' => $item->id)) ?>" onclick="if (!confirm('Bạn có chắc chắn xóa không ?, Hành động này không thể khôi phục')) {
                                                     return false;
                                                 }"><span class="label label-danger">Xóa</span></a>
                                 </td>
